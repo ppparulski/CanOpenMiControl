@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stm32f4xx.h"
+#include <stddef.h>
 
 struct CanMsg
 {
@@ -102,7 +103,7 @@ public:
 		CAN1->sTxMailBox[freeMailbox].TDLR = dataTx[indexTx].data[0];
 		CAN1->sTxMailBox[freeMailbox].TDHR = dataTx[indexTx].data[1];
 		CAN1->sTxMailBox[freeMailbox].TDTR &= ~0xF;
-		CAN1->sTxMailBox[freeMailbox].TDTR |= 0x8;
+		CAN1->sTxMailBox[freeMailbox].TDTR |= dataTx[indexTx].dataNumber;
 
 	}
 

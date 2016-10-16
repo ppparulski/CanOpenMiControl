@@ -70,7 +70,7 @@ int main(void)
 		while (1);
 	}
 
-	Sdo sdo(1);
+	Sdo sdo(&canDrv, 1);
 	MiControlCmds miControl;
 
 	Led::Init();
