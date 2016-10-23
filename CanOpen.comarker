@@ -18,8 +18,8 @@
 <attrib name="charStart" value="-1"/>
 <attrib name="path" value="/"/>
 <attrib name="charEnd" value="-1"/>
-<attrib name="org.eclipse.debug.core.enabled" value="false"/>
 <attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="false"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="false" persistant="true" registered="true">
@@ -29,12 +29,12 @@
 <attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
 <attrib name="org.eclipse.cdt.debug.core.address" value="0x0000000008000f22"/>
 <attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
 <attrib name="charStart" value="-1"/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
 <attrib name="charEnd" value="-1"/>
-<attrib name="org.eclipse.debug.core.enabled" value="false"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="false"/>
 <attrib name="workingset_name" value=""/>
 <attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
 </marker>
@@ -55,26 +55,6 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen/can_drv.h"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:\prywatne\projekty\can_open\canopenstm32\src\can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
 <attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
@@ -95,8 +75,28 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
 <attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -115,288 +115,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen/can_drv.h"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:\praca\projekty\canopen\stm32Master\src\can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
 <attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
-</marker>
-</breakpoint>
-<breakpoint enabled="true" persistant="true" registered="true">
-<resource path="/CanOpen" type="4"/>
-<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
-<attrib name="enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
-<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
-<attrib name="workingset_name" value=""/>
-<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
-<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
-<attrib name="persistant" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
-<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
-<attrib name="registered" value="true"/>
-<attrib name="path" value="/CanOpen"/>
-<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.debug.core.enabled" value="true"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -421,7 +141,7 @@
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
 <resource path="/CanOpen" type="4"/>
-<marker lineNumber="289" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
 <attrib name="enabled" value="true"/>
 <attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
 <attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
@@ -431,12 +151,272 @@
 <attrib name="persistant" value="true"/>
 <attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
 <attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
-<attrib name="message" value="Line breakpoint: can_drv.h [line: 289]"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
 <attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="288" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 288]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -455,8 +435,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -475,8 +455,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -495,8 +475,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -515,8 +495,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -535,8 +515,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -555,8 +535,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -575,8 +555,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -595,8 +575,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -615,8 +595,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -635,8 +615,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -655,8 +635,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -675,8 +655,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -695,8 +675,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -715,8 +695,8 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 <breakpoint enabled="true" persistant="true" registered="true">
@@ -735,8 +715,28 @@
 <attrib name="registered" value="true"/>
 <attrib name="path" value="/CanOpen"/>
 <attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
-<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 <attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
+</marker>
+</breakpoint>
+<breakpoint enabled="true" persistant="true" registered="true">
+<resource path="/CanOpen" type="4"/>
+<marker lineNumber="289" type="org.eclipse.cdt.debug.core.cLineBreakpointMarker">
+<attrib name="enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.condition" value=""/>
+<attrib name="org.eclipse.debug.core.id" value="org.eclipse.cdt.debug.core"/>
+<attrib name="workingset_name" value=""/>
+<attrib name="org.eclipse.cdt.debug.core.installCount" value="0"/>
+<attrib name="type" value="org.eclipse.cdt.debug.core.cLineBreakpointMarker"/>
+<attrib name="persistant" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.breakpointType" value="0"/>
+<attrib name="workingset_id" value="org.eclipse.debug.ui.breakpointWorkingSet"/>
+<attrib name="message" value="Line breakpoint: can_drv.h [line: 289]"/>
+<attrib name="registered" value="true"/>
+<attrib name="path" value="/CanOpen"/>
+<attrib name="org.eclipse.cdt.debug.core.sourceHandle" value="E:/prywatne/projekty/can_open/canopenstm32/src/can_drv.h"/>
+<attrib name="org.eclipse.debug.core.enabled" value="true"/>
+<attrib name="org.eclipse.cdt.debug.core.ignoreCount" value="0"/>
 </marker>
 </breakpoint>
 </breakpoints>
