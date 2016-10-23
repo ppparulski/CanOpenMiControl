@@ -70,11 +70,11 @@ int main(void)
 		while (1);
 	}
 
-	Sdo sdo(1);
+	Sdo sdo(&canDrv, 1);
 	MiControlCmds miControl;
 
 	Led::Init();
-	canDrv.InitHardware();
+	canDrv.Init(CanDrv::B125K);
 
 	__enable_irq();
 
@@ -83,7 +83,7 @@ int main(void)
 
 	sdo.PrepareData();
 
-
+	// test -> przekazanie rozkazu do sterownika Can
 	canDrv.dataTx[0].index = sdo.idWr;
 	canDrv.dataTx[0].data[0] = sdo.mailboxData[0];
 	canDrv.dataTx[0].data[1] = sdo.mailboxData[1];

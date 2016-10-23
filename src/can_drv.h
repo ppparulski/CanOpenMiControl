@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stm32f4xx.h"
+#include <stddef.h>
 
 struct CanMsg
 {
@@ -14,7 +15,16 @@ class CanDrv
 {
 	static const uint8_t queueSize = 0x10;
 
+
+
 public:
+
+	enum BaudRate
+	{
+		B125K,
+		B1M
+	};
+
 	uint8_t freeMailbox;
 
 	CanMsg dataRx[queueSize];
@@ -25,14 +35,12 @@ public:
 	uint32_t indexRx;
 	uint32_t indexTx;
 
-	void Init()
+	void Init(const BaudRate br)
 	{
-
-
-
+		InitHardware(br);
 	}
 
-	void InitHardware()
+	void InitHardware(const BaudRate br)
 	{
 		RCC->AHB1ENR |= RCC_AHB1ENR_GPIODEN;
 		RCC->APB1ENR |= RCC_APB1ENR_CAN1EN;
@@ -52,12 +60,19 @@ public:
 		//CAN1->MCR |= CAN_MCR_NART;
 		CAN1->BTR &= ~(CAN_BTR_SJW | CAN_BTR_TS1 | CAN_BTR_TS2 | CAN_BTR_BRP);
 
-		// 125kbps
-		CAN1->BTR |= ((13-1) << 16) | ((2-1) << 20) | (21-1);
+		// set baudrate
+		switch (br)
+		{
+			case B1M:
+				CAN1->BTR |= ((11-1) << 16) | ((2-1) << 20) | (3-1);
+			break;
 
-		//1Mbps
-		//CAN1->BTR |= ((11-1) << 16) | ((2-1) << 20) | (3-1);
+			case B125K:
+			default:
+				CAN1->BTR |= ((13-1) << 16) | ((2-1) << 20) | (21-1);
+			break;
 
+		}
 
 		CAN1->IER |= CAN_IER_FMPIE0;
 
@@ -102,7 +117,7 @@ public:
 		CAN1->sTxMailBox[freeMailbox].TDLR = dataTx[indexTx].data[0];
 		CAN1->sTxMailBox[freeMailbox].TDHR = dataTx[indexTx].data[1];
 		CAN1->sTxMailBox[freeMailbox].TDTR &= ~0xF;
-		CAN1->sTxMailBox[freeMailbox].TDTR |= 0x8;
+		CAN1->sTxMailBox[freeMailbox].TDTR |= dataTx[indexTx].dataNumber;
 
 	}
 
