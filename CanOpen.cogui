@@ -19,6 +19,7 @@
 <part id="6"/>
 <part id="7"/>
 <part id="8"/>
+<part id="9"/>
 </presentation>
 </folder>
 </info>
@@ -31,9 +32,9 @@
 <input factoryID="org.coocox.component.ui.editors.repository.RepositoryElementFactory">&#x0A;<subPage horizontalPosition="0" selectedItemId="500" subPageIndex="2" verticalPosition="0"/>
 </input>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="sdo.h" partName="sdo.h" path="E:/praca/projekty/canopen/stm32Master/src/sdo.h" title="sdo.h" tooltip="E:/praca/projekty/canopen/stm32Master/src/sdo.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="sdo.h" partName="sdo.h" path="E:/praca/projekty/canopen/stm32Master/src/sdo.h" title="sdo.h" tooltip="E:/praca/projekty/canopen/stm32Master/src/sdo.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/sdo.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="1" selectionOffset="1471" selectionTopPixel="1500"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1078" selectionTopPixel="396"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx.h" partName="stm32f4xx.h" path="E:/prywatne/projekty/can_open/canopenstm32/cmsis_boot/stm32f4xx.h" title="stm32f4xx.h" tooltip="E:/prywatne/projekty/can_open/canopenstm32/cmsis_boot/stm32f4xx.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/cmsis_boot/stm32f4xx.h"/>
@@ -45,37 +46,38 @@
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="E:/praca/projekty/canopen/stm32Master/main.cpp" title="main.cpp" tooltip="E:/praca/projekty/canopen/stm32Master/main.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/main.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1381" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1616" selectionTopPixel="885"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="led_interface.h" partName="led_interface.h" path="E:/prywatne/projekty/can_open/canopenstm32/src/led_interface.h" title="led_interface.h" tooltip="E:/prywatne/projekty/can_open/canopenstm32/src/led_interface.h" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="led_interface.h" partName="led_interface.h" path="E:/praca/projekty/canopen/stm32Master/src/led_interface.h" title="led_interface.h" tooltip="E:/praca/projekty/canopen/stm32Master/src/led_interface.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/led_interface.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="26" selectionOffset="40" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="26" selectionOffset="40" selectionTopPixel="108"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="can_drv.h" partName="can_drv.h" path="E:/praca/projekty/canopen/stm32Master/src/can_drv.h" title="can_drv.h" tooltip="E:/praca/projekty/canopen/stm32Master/src/can_drv.h" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="can_drv.h" partName="can_drv.h" path="E:/praca/projekty/canopen/stm32Master/src/can_drv.h" title="can_drv.h" tooltip="E:/praca/projekty/canopen/stm32Master/src/can_drv.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/can_drv.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1989" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1998" selectionTopPixel="1185"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="mi_controller.h" partName="mi_controller.h" path="E:/praca/projekty/canopen/stm32Master/src/mi_controller.h" title="mi_controller.h" tooltip="E:/praca/projekty/canopen/stm32Master/src/mi_controller.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/mi_controller.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="69" selectionTopPixel="0"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="337" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mi_controller.cpp" partName="mi_controller.cpp" path="E:/praca/projekty/canopen/stm32Master/src/mi_controller.cpp" title="mi_controller.cpp" tooltip="E:/praca/projekty/canopen/stm32Master/src/mi_controller.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/mi_controller.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
 <viewState>
-<ExpressionKeySet ExpKeys="app.rec1.data,app.rang.sampleBuf,(this)-&gt;rec1,cmd[0],mailboxData[0],"/>
+<ExpressionKeySet ExpKeys="rxFrame,app.rang.sampleBuf,rec1.data,cmd[0],pCmd[0],this,filter1.,crc2,crc1,mailboxData,canDrv.dataTx[0],"/>
 </viewState>
 </view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/CanOpen"/>
-<element path="/CanOpen/cmsis"/>
-<element path="/CanOpen/cmsis_boot"/>
-<element path="/CanOpen/cmsis_boot/startup"/>
 </expanded>
 <selection>
-<element path="/CanOpen/cmsis_boot/startup/startup_stm32f4xx.c"/>
+<element path="/CanOpen/hdr_bitband.h"/>
 </selection>
 </viewState>
 </view>
@@ -93,11 +95,11 @@
 </view>
 <view id="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" partName="Memory Browser">
 <viewState>
-<MemoryBroser ComboItemsValue=";cmd[0];cmd;0x2001066c;" FocuseTabIndex="0" TabsValue="" TextValue="0x2001066c" horizontalPosition="0" verticalPosition="0"/>
+<MemoryBroser ComboItemsValue="0x20010e44;" FocuseTabIndex="0" TabsValue="" TextValue="0x20010e44" horizontalPosition="0" verticalPosition="0"/>
 </viewState>
 </view>
 <view id="org.coocox.coassistant.view.CoAssistantView_debug" partName="Peripherals">
-<viewState horizontalPosition="0" verticalPosition="41">
+<viewState horizontalPosition="0" verticalPosition="42">
 <selection>&#x0A;<element name="CAN1"/>
 </selection>
 <registerValues baseAddress="Base Address: 0x40006400" description="Description:  Controller area network"/>
@@ -116,7 +118,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.cdt.ui.editor.CEditor" activePerspective="org.coocox.builder.perspective.CoBuilder">
+<perspectives activePart="org.coocox.builder.ui.views.ProjectView" activePerspective="org.coocox.builder.perspective.CoBuilder">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.coocox.builder.ui.PerspectiveCoBuilder" id="org.coocox.builder.perspective.CoBuilder" label="CooCox CoBuilder"/>
 <alwaysOnActionSet id="org.coocox.component.ui.actionSet"/>
@@ -244,8 +246,8 @@
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <hide_toolbar_item_id id="org.coocox.builder.ui.build"/>
 <hide_toolbar_item_id id="org.coocox.welcome.ui.action.welcome"/>
-<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <hide_toolbar_item_id id="org.coocox.codebugger.configuration.coideProgramDownloadAction"/>
+<hide_toolbar_item_id id="org.coocox.component.ui.ShowRepositoryAction"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.debug.ui.BreakpointView"/>
@@ -290,7 +292,7 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@6bfcff" ratio="0.6962253" ratioLeft="1162" ratioRight="507" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb">&#x0A;<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">&#x0A;<page content="org.coocox.coassistant.view.CoAssistantView_debug" label="Peripherals"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@6bfcff" ratio="0.68844223" ratioLeft="685" ratioRight="310" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb">&#x0A;<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">&#x0A;<page content="org.coocox.coassistant.view.CoAssistantView_debug" label="Peripherals"/>
 <page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
@@ -308,160 +310,154 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/sdo.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/main.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/cmsis_boot/startup/startup_stm32f4xx.c"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/main.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/can_drv.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/mi_controller.h"/>
 </editors>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1119" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="289" y="0"/>
+<item historyLabel="sdo.h" index="0">
+<position info="not_deleted" x="1443" y="0"/>
 </item>
 <item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="959" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1119" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1119" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="974" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="992" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1027" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1054" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1081" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1119" y="0"/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1136" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1282" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1346" y="0"/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1346" y="0"/>
+<position info="not_deleted" x="1681" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="1">
 <position info="not_deleted" x="1118" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1241" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="974" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="992" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1027" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1054" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1081" y="0"/>
+<position info="not_deleted" x="1357" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1284" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1299" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1326" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1348" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1391" y="0"/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position/>
+<position info="not_deleted" x="1648" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="1">
 <position info="not_deleted" x="1118" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1391" y="0"/>
+<position info="not_deleted" x="1118" y="0"/>
 </item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1365" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1401" y="0"/>
-</item>
-<item historyLabel="startup_stm32f4xx.c" index="2">
-<position info="not_deleted" x="20995" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1401" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1357" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="1">
 <position info="not_deleted" x="1118" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="1">
-<position info="not_deleted" x="1391" y="0"/>
+<position info="not_deleted" x="1357" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1247" y="0"/>
 </item>
 <item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1365" y="0"/>
+<position info="not_deleted" x="1681" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1118" y="0"/>
 </item>
 <item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1401" y="0"/>
+<position info="not_deleted" x="1024" y="0"/>
 </item>
 <item historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="1341" y="0"/>
+<position info="not_deleted" x="1051" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="3">
-<position info="not_deleted" x="1391" y="0"/>
+<item historyLabel="sdo.h" index="0">
+<position info="not_deleted" x="1078" y="0"/>
 </item>
-<item historyLabel="can_drv.h" index="4">
-<position info="not_deleted" x="7144" y="2"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1293" y="0"/>
 </item>
-<item historyLabel="can_drv.h" index="4">
-<position info="not_deleted" x="1989" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1308" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="3">
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1335" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1357" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1402" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1427" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1464" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1513" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1428" y="13"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1562" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
 <position info="not_deleted" x="1601" y="0"/>
 </item>
-<item historyLabel="mi_controller.h" index="5">
-<position info="not_deleted" x="262" y="0"/>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2000" y="0"/>
 </item>
-<item historyLabel="mi_controller.h" index="5">
-<position info="not_deleted" x="69" y="0"/>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2467" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="3">
-<position/>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2500" y="0"/>
 </item>
-<item active="true" historyLabel="sdo.h" index="0">
-<position info="not_deleted" x="110" y="0"/>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2573" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2647" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2676" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2710" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2772" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2024" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2092" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2157" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2222" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2269" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2340" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1648" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1693" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="2373" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1693" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1648" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1118" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1616" y="0"/>
+</item>
+<item active="true" historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="1983" y="9"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -469,51 +465,5 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 </window>
-<mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" tooltip="Tensometer/src/main.cpp">
-<persistable path="/Tensometer/src/main.cpp"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="encoder_interface.h" tooltip="Tensometer/include/encoder_interface.h">
-<persistable path="/Tensometer/include/encoder_interface.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="ad7730_device.h" tooltip="Tensometer/include/ad7730_device.h">
-<persistable path="/Tensometer/include/ad7730_device.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CO_OD.c" tooltip="canOpen/canOpen/src/CO_OD.c">
-<persistable path="/canOpen/canOpen/src/CO_OD.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CANopen.c" tooltip="canOpen/canOpen/src/CANopen.c">
-<persistable path="/canOpen/canOpen/src/CANopen.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CO_common.c" tooltip="canOpen/canOpen/src/CO_common.c">
-<persistable path="/canOpen/canOpen/src/CO_common.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CO_common.h" tooltip="canOpen/canOpen/inc/CO_common.h">
-<persistable path="/canOpen/canOpen/inc/CO_common.h"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f10x_conf.h" tooltip="e:\praca\projekty\canopen\test\stm32f10x_conf.h">
-<persistable uri="file:/e:/praca/projekty/canopen/test/stm32f10x_conf.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CO_SDO.h" tooltip="canOpen/canOpen/inc/CO_SDO.h">
-<persistable path="/canOpen/canOpen/inc/CO_SDO.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CO_SDO.c" tooltip="canOpen/canOpen/src/CO_SDO.c">
-<persistable path="/canOpen/canOpen/src/CO_SDO.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timer.c" tooltip="canOpen/canOpen/driver/timer.c">
-<persistable path="/canOpen/canOpen/driver/timer.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="timer.h" tooltip="canOpen/canOpen/driver/timer.h">
-<persistable path="/canOpen/canOpen/driver/timer.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="application.h" tooltip="canOpen/canOpen/inc/application.h">
-<persistable path="/canOpen/canOpen/inc/application.h"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="CO_SDOmaster.c" tooltip="canOpen/canOpen/src/CO_SDOmaster.c">
-<persistable path="/canOpen/canOpen/src/CO_SDOmaster.c"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="CanOpen/cmsis_boot/startup/startup_stm32f4xx.c">
-<persistable path="/CanOpen/cmsis_boot/startup/startup_stm32f4xx.c"/>
-</file>
-</mruList>
+<mruList/>
 </workbench>

@@ -2,6 +2,7 @@
 
 #include "can_drv.h"
 #include "stdint.h"
+#include "stddef.h"
 #include "string.h"
 
 
@@ -38,11 +39,12 @@ public:
 	volatile bool	transmitted;
 	volatile bool	received;
 
-	volatile bool	startTriger;
+	volatile bool	startTrigger;
 
 	volatile uint16_t time;
 	volatile int16_t	trials;
 
+	uint32_t mailboxData[2];
 	uint8_t id;
 	uint16_t idWr;
 	uint16_t idRd;
@@ -72,14 +74,14 @@ public:
 	// wype³nienie skrzynki trescia
 	void PrepareData()
 	{
-		SdoCmd * cmd = &cmd[cmdIndex];
+		SdoCmd * c = &cmd[cmdIndex];
 
-		canDrv-
-		mailboxData[0] = *(uint32_t*)&cmd->type;
-		mailboxData[1] = *(uint32_t*)cmd->data;
+		mailboxData[0] = *(uint32_t*)&c->type;
+		mailboxData[1] = *(uint32_t*)c->data;
 
-		time = cmd->timeout;
-		trials = cmd->trials;
+		//canDrv->dataTx
+		time = c->timeout;
+		trials = c->trials;
 		transmitted = 0;
 		received = 0;
 	}
@@ -96,9 +98,9 @@ public:
 		if (completed) return false;
 		if (!trials) return false;
 
-		if (startTriger)
+		if (startTrigger)
 		{
-			startTriger = false;
+			startTrigger = false;
 			completed = false;
 		}
 		else
@@ -120,6 +122,7 @@ public:
 			}
 			else
 			{
+				// sprawdzenie warunku czasu
 				if (!(--time))
 				{
 					Reset();
