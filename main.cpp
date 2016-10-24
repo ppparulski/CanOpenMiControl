@@ -74,7 +74,7 @@ int main(void)
 	MiControlCmds miControl;
 
 	Led::Init();
-	canDrv.Init(CanDrv::B125K);
+	canDrv.Init(CanDrv::B1M);
 
 	__enable_irq();
 
