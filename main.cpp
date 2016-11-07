@@ -80,6 +80,7 @@ int main(void)
 
 
 	sdo.PushCommand(miControl.ClearError());
+	sdo.PushCommand(miControl.SetMotorDC());
 
 	sdo.PrepareData();
 
