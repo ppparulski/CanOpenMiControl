@@ -84,13 +84,27 @@ public:
 		trials = c->trials;
 		transmitted = 0;
 		received = 0;
+
 	}
 
 	void StartSequence()
 	{
-		startTrigger = true;
+		PrepareData();
+		completed = false;
+
+		// test -> przekazanie rozkazu do sterownika Can
+				canDrv->dataTx[0].index = idWr;
+				canDrv->dataTx[0].data[0] = mailboxData[0];
+				canDrv->dataTx[0].data[1] = mailboxData[1];
+				canDrv->dataTx[0].dataNumber = 8;
+
+				canDrv->SetWrData();
 	}
 
+	void SendTrigger()
+	{
+		canDrv->SendTrigger();
+	}
 
 	bool StackWriteUpdate()
 	{
@@ -98,7 +112,7 @@ public:
 		if (completed) return false;
 		if (!trials) return false;
 
-		if (startTrigger)
+		if (!startTrigger)
 		{
 			startTrigger = false;
 			completed = false;

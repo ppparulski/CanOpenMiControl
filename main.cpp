@@ -10,7 +10,7 @@
 
 bool tick = false;
 CanDrv canDrv;
-
+Sdo* SDO;
 
 
 
@@ -52,16 +52,37 @@ void SysTick_Handler(void) {
 
 }
 
+
+
+
 void CAN1_RX0_IRQHandler(void)
 {
 	canDrv.IrqRead();
+	SDO->received = true;
+	SDO->StackWriteUpdate();
+	/*
+	if (!CommandQueue.empty())
+	{
+		sdo.PushCommand(CommandQueue.Next());
+		sdo.PrepareData();
 
+		// test -> przekazanie rozkazu do sterownika Can
+		canDrv.dataTx[0].index = sdo.idWr;
+		canDrv.dataTx[0].data[0] = sdo.mailboxData[0];
+		canDrv.dataTx[0].data[1] = sdo.mailboxData[1];
+		canDrv.dataTx[0].dataNumber = 8;
 
+		canDrv.SetWrData();
+	}*/
 }
+
 
 
 int main(void)
 {
+	Sdo sdo(&canDrv, 1);
+	SDO = &sdo;
+	MiControlCmds Command;
 
 	SystemInit();
 
@@ -70,36 +91,24 @@ int main(void)
 		while (1);
 	}
 
-	Sdo sdo(&canDrv, 1);
-	MiControlCmds miControl;
-
 	Led::Init();
 	canDrv.Init(CanDrv::B1M);
 
 	__enable_irq();
 
 
-	sdo.PushCommand(miControl.ClearError());
-	sdo.PushCommand(miControl.SetMotorDC());
 
-	sdo.PrepareData();
+	sdo.PushCommand(Command.ClearError());
+	sdo.PushCommand(Command.SetMotorDC());
 
-	// test -> przekazanie rozkazu do sterownika Can
-	canDrv.dataTx[0].index = sdo.idWr;
-	canDrv.dataTx[0].data[0] = sdo.mailboxData[0];
-	canDrv.dataTx[0].data[1] = sdo.mailboxData[1];
-	canDrv.dataTx[0].dataNumber = 8;
-
-
-	canDrv.SetWrData();
-
+	sdo.StartSequence();
 
     while(1)
     {
     	if (tick)
     	{
     		tick = false;
-    		canDrv.SendTrigger();
+    		sdo.SendTrigger();
     	}
 
     }
