@@ -41,8 +41,8 @@ void GeneralHardwareInit()
 }
 
 
-void SysTick_Handler(void) {
-
+void SysTick_Handler(void)
+{
 	if (++counter1==500)
 	{
 		counter1 = 0;
@@ -59,7 +59,7 @@ void CAN1_RX0_IRQHandler(void)
 {
 	canDrv.IrqRead();
 	SDO->received = true;
-	SDO->StackWriteUpdate();
+	SDO->StackUpdate();
 	/*
 	if (!CommandQueue.empty())
 	{
@@ -100,6 +100,9 @@ int main(void)
 
 	sdo.PushCommand(Command.ClearError());
 	sdo.PushCommand(Command.SetMotorDC());
+	sdo.PushCommand(Command.MotorEnable());
+	sdo.PushCommand(Command.SetSubvel(-2000));
+	sdo.PushCommand(Command.SetSubvel(-2000));
 
 	sdo.StartSequence();
 

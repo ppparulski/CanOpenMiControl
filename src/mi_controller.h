@@ -79,12 +79,15 @@ public:
 	}
 
 
-	SdoCmd * SetSubvelValue()
+	SdoCmd * SetSubvel(int Value)
 	{
 		cmd.type = 0x23;
 		cmd.index = 0x3500;
 		cmd.subindex = 0x00;
-		cmd.data[0] = 0x00;
+		cmd.data[0] = Value;
+		cmd.data[1] = Value >> 8;
+		cmd.data[2] = Value >> 16;
+		cmd.data[3] = Value >> 24;
 		cmd.timeout = 5;
 		cmd.trials = -1;
 		return &cmd;

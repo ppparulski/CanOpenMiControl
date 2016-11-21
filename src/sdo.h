@@ -85,25 +85,32 @@ public:
 		transmitted = 0;
 		received = 0;
 
+		// Przekazanie rozkazu do sterownika Can
+		canDrv->dataTx[0].index = idWr;
+		canDrv->dataTx[0].data[0] = mailboxData[0];
+		canDrv->dataTx[0].data[1] = mailboxData[1];
+		canDrv->dataTx[0].dataNumber = 8;
+
+		canDrv->SetWrData();
 	}
 
 	void StartSequence()
 	{
+		cmdIndex = 0;
 		PrepareData();
 		completed = false;
-
-		// test -> przekazanie rozkazu do sterownika Can
-				canDrv->dataTx[0].index = idWr;
-				canDrv->dataTx[0].data[0] = mailboxData[0];
-				canDrv->dataTx[0].data[1] = mailboxData[1];
-				canDrv->dataTx[0].dataNumber = 8;
-
-				canDrv->SetWrData();
 	}
 
 	void SendTrigger()
 	{
-		canDrv->SendTrigger();
+		if (!completed) canDrv->SendTrigger();
+		// TODO: odliczanie prób.
+	}
+
+	void StackUpdate()
+	{
+		if (++cmdIndex < cmdNumber) PrepareData();
+		else completed = true;
 	}
 
 	bool StackWriteUpdate()
@@ -142,7 +149,7 @@ public:
 					Reset();
 					PrepareData();
 					newCmd = true;
-					if (trials>0) trials--;
+					if (trials > 0) trials--;
 				}
 			}
 		}
