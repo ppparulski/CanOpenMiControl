@@ -22,6 +22,58 @@ public:
 		return &cmd;
 	}
 
+	SdoCmd * DisableRPDO()
+	{
+		cmd.type = 0x23;
+		cmd.index = 0x1600;
+		cmd.subindex = 0x00;
+		*(uint32_t*)cmd.data = 0;
+		cmd.data[0] = 0;
+		cmd.timeout = 10;
+		cmd.trials = -1;
+		return &cmd;
+	}
+
+	SdoCmd * MapRPDO(int CmdCode)
+	{
+		cmd.type = 0x23;
+		cmd.index = 0x1600;
+		cmd.subindex = 0x01;
+		*(uint32_t*)cmd.data = 0;
+		cmd.data[0] = CmdCode;
+		cmd.data[1] = CmdCode >> 8;
+		cmd.data[2] = CmdCode >> 16;
+		cmd.data[3] = CmdCode >> 24;
+		cmd.timeout = 10;
+		cmd.trials = -1;
+		return &cmd;
+	}
+
+	SdoCmd * EnableRPDO(int Number)
+	{
+		cmd.type = 0x23;
+		cmd.index = 0x1600;
+		cmd.subindex = 0x00;
+		*(uint32_t*)cmd.data = 0;
+		cmd.data[0] = Number;
+		cmd.timeout = 10;
+		cmd.trials = -1;
+		return &cmd;
+	}
+
+	SdoCmd * NMTOperational()
+	{
+		cmd.type = 0x01;
+		cmd.index = 0x0100;
+		cmd.subindex = 0x00;
+		*(uint32_t*)cmd.data = 0;
+		cmd.timeout = 10;
+		cmd.trials = -1;
+		return &cmd;
+	}
+
+
+
 	SdoCmd * LoadDefault()
 	{
 		cmd.type = 0x23;

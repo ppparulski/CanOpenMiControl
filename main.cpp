@@ -2,6 +2,7 @@
 
 
 #include "sdo.h"
+#include "pdo.h"
 #include "can_drv.h"
 #include "mi_controller.h"
 #include "led_interface.h"
@@ -81,6 +82,7 @@ void CAN1_RX0_IRQHandler(void)
 int main(void)
 {
 	Sdo sdo(&canDrv, 1);
+	Pdo pdo(&canDrv, 1);
 	SDO = &sdo;
 	MiControlCmds Command;
 
@@ -98,11 +100,18 @@ int main(void)
 
 
 
+
 	sdo.PushCommand(Command.ClearError());
 	sdo.PushCommand(Command.SetMotorDC());
 	sdo.PushCommand(Command.MotorEnable());
 	sdo.PushCommand(Command.SetSubvel(-2000));
 	sdo.PushCommand(Command.SetSubvel(-2000));
+
+	sdo.PushCommand(Command.DisableRPDO());
+	sdo.PushCommand(Command.MapRPDO(0x35000020)); // index, subindex, length in bits (0x08 or 0x10 or 0x20). Here 0x20 to have 4 bytes of velocity data
+	sdo.PushCommand(Command.EnableRPDO(1));
+
+	sdo.PushCommand(Command.NMTOperational());
 
 	sdo.StartSequence();
 
@@ -111,7 +120,8 @@ int main(void)
     	if (tick)
     	{
     		tick = false;
-    		sdo.SendTrigger();
+    		if (!sdo.completed) sdo.SendTrigger();
+    		else pdo.Send(0);
     	}
 
     }
