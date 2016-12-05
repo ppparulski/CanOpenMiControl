@@ -64,7 +64,7 @@ public:
 	SdoCmd * NMTOperational()
 	{
 		cmd.type = 0x01;
-		cmd.index = 0x0100;
+		cmd.index = 0x0001;
 		cmd.subindex = 0x00;
 		*(uint32_t*)cmd.data = 0;
 		cmd.timeout = 10;

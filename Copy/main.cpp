@@ -2,7 +2,6 @@
 
 
 #include "sdo.h"
-#include "pdo.h"
 #include "can_drv.h"
 #include "mi_controller.h"
 #include "led_interface.h"
@@ -42,8 +41,8 @@ void GeneralHardwareInit()
 }
 
 
-void SysTick_Handler(void)
-{
+void SysTick_Handler(void) {
+
 	if (++counter1==500)
 	{
 		counter1 = 0;
@@ -60,7 +59,7 @@ void CAN1_RX0_IRQHandler(void)
 {
 	canDrv.IrqRead();
 	SDO->received = true;
-	SDO->StackUpdate();
+	SDO->StackWriteUpdate();
 	/*
 	if (!CommandQueue.empty())
 	{
@@ -82,7 +81,6 @@ void CAN1_RX0_IRQHandler(void)
 int main(void)
 {
 	Sdo sdo(&canDrv, 1);
-	Pdo pdo(&canDrv, 1);
 	SDO = &sdo;
 	MiControlCmds Command;
 
@@ -100,21 +98,12 @@ int main(void)
 
 
 
-
-	//sdo.PushCommand(Command.ClearError());
-	//sdo.PushCommand(Command.SetMotorDC());
-	//sdo.PushCommand(Command.MotorDisable());
-	//sdo.PushCommand(Command.SetSubvel(-2000));
-
-	sdo.PushCommand(Command.DisableRPDO());
-	sdo.PushCommand(Command.MapRPDO(0x35000020)); // index, subindex, length in bits (0x08 or 0x10 or 0x20). Here 0x20 to have 4 bytes of velocity data
-	sdo.PushCommand(Command.EnableRPDO(1));
-
-	sdo.PushCommand(Command.NMTOperational());
+	sdo.PushCommand(Command.ClearError());
+	sdo.PushCommand(Command.SetMotorDC());
 
 	sdo.StartSequence();
 
-    while(!sdo.completed)
+    while(1)
     {
     	if (tick)
     	{
@@ -123,7 +112,5 @@ int main(void)
     	}
 
     }
-    pdo.Send(0x0101);
-    pdo.Send(1000);
     return 0;
 }
