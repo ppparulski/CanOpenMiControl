@@ -8,35 +8,30 @@
 
 class Pdo
 {
-	static const uint8_t stackSize = 32;
-	static const uint16_t idWrOffset = 0x600;
-	static const uint16_t idRdOffset = 0x580;
-
 	CanDrv * canDrv;
 
-	uint32_t mailboxData[2];
-	uint8_t id;
-	uint16_t idWr;
-	uint16_t idRd;
-
 public:
-	Pdo(CanDrv * canDrv, uint16_t id)
+	Pdo(CanDrv * canDrv, uint16_t id) : canDrv(canDrv) {}
+
+	void SetOperational()
 	{
-		this->id = id;
-		this->canDrv = canDrv;
-		idWr = id + idWrOffset;
-		idRd = id + idRdOffset;
+		canDrv->dataTx[0].index = 0;
+		canDrv->dataTx[0].data[0] = 0x0101;
+		canDrv->dataTx[0].data[1] = 0;
+		canDrv->dataTx[0].dataNumber = 2;
+
+		canDrv->SetWrData();
+		canDrv->SendTrigger();
 	}
 
 	void Send(int Value)
 	{
-		canDrv->dataTx[0].index = idWr;
+		canDrv->dataTx[0].index = 0x201;
 		canDrv->dataTx[0].data[0] = Value;
 		canDrv->dataTx[0].data[1] = Value >> 8;
-		canDrv->dataTx[0].dataNumber = 8;
+		canDrv->dataTx[0].dataNumber = 2;
 
 		canDrv->SetWrData();
-
 		canDrv->SendTrigger();
 	}
 };

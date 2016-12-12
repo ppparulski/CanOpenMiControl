@@ -85,6 +85,17 @@ public:
 		cmd.trials = -1;
 		return &cmd;
 	}
+	SdoCmd * RestoreParam()
+		{
+			cmd.type = 0x23;
+			cmd.index = 0x3000;
+			cmd.subindex = 0x00;
+			*(uint32_t*)cmd.data = 0;
+			cmd.data[0] = 0x81;
+			cmd.timeout = 10;
+			cmd.trials = -1;
+			return &cmd;
+		}
 
 	SdoCmd * SetMotorDC()
 	{

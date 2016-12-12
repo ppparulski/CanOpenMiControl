@@ -101,16 +101,17 @@ int main(void)
 
 
 
-	//sdo.PushCommand(Command.ClearError());
-	//sdo.PushCommand(Command.SetMotorDC());
-	//sdo.PushCommand(Command.MotorDisable());
+	sdo.PushCommand(Command.ClearError());
+	sdo.PushCommand(Command.RestoreParam()); // Wyd³u¿yæ czas wykonania?
+	sdo.PushCommand(Command.MotorEnable());
 	//sdo.PushCommand(Command.SetSubvel(-2000));
+
 
 	sdo.PushCommand(Command.DisableRPDO());
 	sdo.PushCommand(Command.MapRPDO(0x35000020)); // index, subindex, length in bits (0x08 or 0x10 or 0x20). Here 0x20 to have 4 bytes of velocity data
 	sdo.PushCommand(Command.EnableRPDO(1));
 
-	sdo.PushCommand(Command.NMTOperational());
+	//sdo.PushCommand(Command.NMTOperational());
 
 	sdo.StartSequence();
 
@@ -123,7 +124,7 @@ int main(void)
     	}
 
     }
-    pdo.Send(0x0101);
-    pdo.Send(1000);
+    pdo.SetOperational();
+    pdo.Send(100);
     return 0;
 }
