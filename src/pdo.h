@@ -8,10 +8,12 @@
 
 class Pdo
 {
+	bool operational;
 	CanDrv * canDrv;
 
 public:
-	Pdo(CanDrv * canDrv, uint16_t id) : canDrv(canDrv) {}
+	const bool& Operational;
+	Pdo(CanDrv * canDrv, uint16_t id) : canDrv(canDrv), operational(false), Operational(operational) {}
 
 	void SetOperational()
 	{
@@ -22,6 +24,8 @@ public:
 
 		canDrv->SetWrData();
 		canDrv->SendTrigger();
+
+		operational = true;
 	}
 
 	void Send(int Value)

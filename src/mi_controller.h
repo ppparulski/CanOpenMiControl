@@ -34,28 +34,29 @@ public:
 		return &cmd;
 	}
 
-	SdoCmd * MapRPDO(int cmdCode)
+	// numberOfBits: Only 8, 16 and 32 available.
+	SdoCmd * MapRPDO(int object, int index, int subIndex, int numberOfBits)
 	{
 		cmd.type = 0x23;
 		cmd.index = 0x1600;
-		cmd.subindex = 0x01;
+		cmd.subindex = object;
 		*(uint32_t*)cmd.data = 0;
-		cmd.data[0] = cmdCode;
-		cmd.data[1] = cmdCode >> 8;
-		cmd.data[2] = cmdCode >> 16;
-		cmd.data[3] = cmdCode >> 24;
+		cmd.data[0] = numberOfBits;
+		cmd.data[1] = subIndex;
+		cmd.data[2] = index;
+		cmd.data[3] = index >> 8;
 		cmd.timeout = 10;
 		cmd.trials = -1;
 		return &cmd;
 	}
 
-	SdoCmd * EnableRPDO(int Number)
+	SdoCmd * EnableRPDO(int numberOfObjects)
 	{
 		cmd.type = 0x23;
 		cmd.index = 0x1600;
 		cmd.subindex = 0x00;
 		*(uint32_t*)cmd.data = 0;
-		cmd.data[0] = Number;
+		cmd.data[0] = numberOfObjects;
 		cmd.timeout = 10;
 		cmd.trials = -1;
 		return &cmd;
@@ -86,16 +87,16 @@ public:
 		return &cmd;
 	}
 	SdoCmd * RestoreParam()
-		{
-			cmd.type = 0x23;
-			cmd.index = 0x3000;
-			cmd.subindex = 0x00;
-			*(uint32_t*)cmd.data = 0;
-			cmd.data[0] = 0x81;
-			cmd.timeout = 10;
-			cmd.trials = -1;
-			return &cmd;
-		}
+	{
+		cmd.type = 0x23;
+		cmd.index = 0x3000;
+		cmd.subindex = 0x00;
+		*(uint32_t*)cmd.data = 0;
+		cmd.data[0] = 0x81;
+		cmd.timeout = 10;
+		cmd.trials = -1;
+		return &cmd;
+	}
 
 	SdoCmd * SetMotorDC()
 	{
