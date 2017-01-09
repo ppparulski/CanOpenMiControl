@@ -59,22 +59,8 @@ void SysTick_Handler(void)
 void CAN1_RX0_IRQHandler(void)
 {
 	canDrv.IrqRead();
-	SDO->received = true;
 	SDO->StackUpdate();
-	/*
-	if (!CommandQueue.empty())
-	{
-		sdo.PushCommand(CommandQueue.Next());
-		sdo.PrepareData();
-
-		// test -> przekazanie rozkazu do sterownika Can
-		canDrv.dataTx[0].index = sdo.idWr;
-		canDrv.dataTx[0].data[0] = sdo.mailboxData[0];
-		canDrv.dataTx[0].data[1] = sdo.mailboxData[1];
-		canDrv.dataTx[0].dataNumber = 8;
-
-		canDrv.SetWrData();
-	}*/
+	// TODO: zapisywanie odebranej pozycji enkodera do tablicy. Wysy³anie zawartosci tablicy do PC w narzêdziach debuggera.
 }
 
 
@@ -104,8 +90,13 @@ int main(void)
 	sdo.PushCommand(Command.MotorEnable());
 
 	sdo.PushCommand(Command.DisableRPDO());
-	sdo.PushCommand(Command.MapRPDO(1, 0x3500, 0, 32));
+	sdo.PushCommand(Command.MapRPDO(1, Command.SetSubvel(0), 32)); // Alternatywna sk³adnia: MapRPDO(1, 0x3500, 0, 32)
 	sdo.PushCommand(Command.EnableRPDO(1));
+
+	sdo.PushCommand(Command.DisableTPDO());
+	sdo.PushCommand(Command.TransmissionType());
+	sdo.PushCommand(Command.MapTPDO(1, 0x3762, 0, 32));
+	sdo.PushCommand(Command.EnableTPDO(1));
 
 	sdo.StartSequence();
 
@@ -117,7 +108,8 @@ int main(void)
     		else pdo.SetOperational();
     	}
 
-    while (true) if (tick) { pdo.Send(100); break; }
+    while (true) if (tick) { tick = false; pdo.Send(0); break; }
+    while (true) if (tick) { tick = false; pdo.Read();}
 
     return 0;
 }

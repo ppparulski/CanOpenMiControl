@@ -22,18 +22,6 @@ public:
 		return &cmd;
 	}
 
-	SdoCmd * DisableRPDO()
-	{
-		cmd.type = 0x23;
-		cmd.index = 0x1600;
-		cmd.subindex = 0x00;
-		*(uint32_t*)cmd.data = 0;
-		cmd.data[0] = 0;
-		cmd.timeout = 10;
-		cmd.trials = -1;
-		return &cmd;
-	}
-
 	// numberOfBits: Only 8, 16 and 32 available.
 	SdoCmd * MapRPDO(int object, int index, int subIndex, int numberOfBits)
 	{
@@ -50,6 +38,12 @@ public:
 		return &cmd;
 	}
 
+	// Alternatywna sk³adnia mapowania RPDO.
+	SdoCmd * MapRPDO(int object, SdoCmd* Command, int numberOfBits)
+	{
+		return MapRPDO(object, Command->index, Command->subindex, numberOfBits);
+	}
+
 	SdoCmd * EnableRPDO(int numberOfObjects)
 	{
 		cmd.type = 0x23;
@@ -61,6 +55,55 @@ public:
 		cmd.trials = -1;
 		return &cmd;
 	}
+	SdoCmd * DisableRPDO() { EnableRPDO(0); }
+
+
+	SdoCmd * TransmissionType()
+	{
+		cmd.type = 0x23;
+		cmd.index = 0x1800;
+		cmd.subindex = 0x02;
+		*(uint32_t*)cmd.data = 0;
+		cmd.data[0] = 0x01;
+		cmd.timeout = 10;
+		cmd.trials = -1;
+		return &cmd;
+	}
+
+	// numberOfBits: Only 8, 16 and 32 available.
+	SdoCmd * MapTPDO(int object, int index, int subIndex, int numberOfBits)
+	{
+		cmd.type = 0x23;
+		cmd.index = 0x1A00;
+		cmd.subindex = object;
+		*(uint32_t*)cmd.data = 0;
+		cmd.data[0] = numberOfBits;
+		cmd.data[1] = subIndex;
+		cmd.data[2] = index;
+		cmd.data[3] = index >> 8;
+		cmd.timeout = 10;
+		cmd.trials = -1;
+		return &cmd;
+	}
+
+	// Alternatywna sk³adnia mapowania RPDO.
+	SdoCmd * MapTPDO(int object, SdoCmd* Command, int numberOfBits)
+	{
+		return MapRPDO(object, Command->index, Command->subindex, numberOfBits);
+	}
+
+	SdoCmd * EnableTPDO(int numberOfObjects)
+	{
+		cmd.type = 0x23;
+		cmd.index = 0x1A00;
+		cmd.subindex = 0x00;
+		*(uint32_t*)cmd.data = 0;
+		cmd.data[0] = numberOfObjects;
+		cmd.timeout = 10;
+		cmd.trials = -1;
+		return &cmd;
+	}
+	SdoCmd * DisableTPDO() { EnableTPDO(0); }
 
 	SdoCmd * NMTOperational()
 	{
