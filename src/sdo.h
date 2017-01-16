@@ -51,6 +51,7 @@ public:
 
 	Sdo(CanDrv * canDrv, uint16_t id)
 	{
+		completed = false;
 		cmdNumber = 0;
 		this->id = id;
 		this->canDrv = canDrv;

@@ -39,9 +39,9 @@ public:
 		canDrv->SendTrigger();
 	}
 
-	void Read()
+	void Read(int Index)
 	{
-		canDrv->dataTx[0].index = 0x80;
+		canDrv->dataTx[0].index = Index;
 		canDrv->dataTx[0].data[0] = 0;
 		canDrv->dataTx[0].data[1] = 0;
 		canDrv->dataTx[0].dataNumber = 0;

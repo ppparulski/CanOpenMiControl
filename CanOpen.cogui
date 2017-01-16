@@ -10,29 +10,24 @@
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="2"/>
 <part id="0"/>
 <part id="1"/>
-<part id="3"/>
+<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mi_controller.h" partName="mi_controller.h" path="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/mi_controller.h" title="mi_controller.h" tooltip="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/mi_controller.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/mi_controller.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1434" selectionTopPixel="0"/>
-</editor>
 <editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="C:/Users/Student/Pracownia 2016/CanOpenMiControl/main.cpp" title="main.cpp" tooltip="C:/Users/Student/Pracownia 2016/CanOpenMiControl/main.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/main.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1028" selectionTopPixel="405"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1426" selectionTopPixel="945"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="sdo.h" partName="sdo.h" path="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/sdo.h" title="sdo.h" tooltip="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/sdo.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/sdo.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="733" selectionTopPixel="236"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="965" selectionTopPixel="608"/>
 </editor>
 <editor id="org.eclipse.cdt.ui.editor.CEditor" name="pdo.h" partName="pdo.h" path="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/pdo.h" title="pdo.h" tooltip="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/pdo.h" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/pdo.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="803" selectionTopPixel="151"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="852" selectionTopPixel="247"/>
 </editor>
 </editors>
 <views>
@@ -49,7 +44,7 @@
 </view>
 <view id="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" partName="Memory Browser">
 <viewState>
-<MemoryBroser ComboItemsValue="0x20010e44;" FocuseTabIndex="0" TabsValue="" TextValue="0x20010e44" horizontalPosition="0" verticalPosition="0"/>
+<MemoryBroser ComboItemsValue="0x20010674;" FocuseTabIndex="0" TabsValue="" TextValue="0x20010674" horizontalPosition="0" verticalPosition="0"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
@@ -63,7 +58,7 @@
 </view>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
 <viewState>
-<ExpressionKeySet ExpKeys=""/>
+<ExpressionKeySet ExpKeys="Angle,Angle,Angle,"/>
 </viewState>
 </view>
 <view id="org.eclipse.ui.navigator.ProjectExplorer" partName="Project Explorer">
@@ -151,7 +146,7 @@
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1f31c4e" ratio="0.6790634" ratioLeft="493" ratioRight="233" relationship="4" relative="org.eclipse.ui.internal.ViewStack@f9746b">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1f31c4e" ratio="0.75186366" ratioLeft="706" ratioRight="233" relationship="4" relative="org.eclipse.ui.internal.ViewStack@f9746b">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
@@ -264,7 +259,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1d8b476" ratio="0.64962727" ratioLeft="610" ratioRight="329" relationship="4" relative="org.eclipse.ui.internal.ViewStack@132bfeb">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
@@ -276,7 +271,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@e7dfd0" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1d8b476">
-<folder activePageID="org.eclipse.search.ui.views.SearchView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" appearance="2" expanded="2">
 <page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="Memory Browser"/>
@@ -315,128 +310,29 @@
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/main.cpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/pdo.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/mi_controller.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/can_drv.h"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/sdo.h"/>
 </editors>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="2096" y="0"/>
-</item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="608" y="5"/>
-</item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="1947" y="0"/>
-</item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="357" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1920" y="0"/>
-</item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="1394" y="0"/>
+<position info="not_deleted" x="2596" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2013" y="0"/>
+<position info="not_deleted" x="2434" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2013" y="0"/>
-</item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="357" y="0"/>
-</item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="1109" y="0"/>
+<position info="not_deleted" x="1866" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1496" y="0"/>
-</item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="1434" y="0"/>
+<position info="not_deleted" x="1048" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1496" y="0"/>
+<position info="not_deleted" x="1426" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2383" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2423" y="0"/>
-</item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="357" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2423" y="0"/>
-</item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="948" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="2529" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2423" y="0"/>
-</item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="790" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2423" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2423" y="0"/>
-</item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="803" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="2529" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2423" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="980" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="980" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="2529" y="0"/>
-</item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="1434" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2411" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1116" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="2529" y="0"/>
-</item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="1434" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1118" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1290" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1104" y="0"/>
-</item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="1434" y="0"/>
-</item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="1005" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1104" y="0"/>
+<position info="not_deleted" x="1396" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
 <position/>
@@ -444,29 +340,125 @@
 <item historyLabel="main.cpp" index="0">
 <position/>
 </item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1300" y="0"/>
+</item>
+<item historyLabel="can_drv.h" index="2">
+<position info="not_deleted" x="7741" y="0"/>
+</item>
 <item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="803" y="0"/>
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1300" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1396" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1426" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2409" y="0"/>
+</item>
+<item historyLabel="pdo.h" index="1">
+<position info="not_deleted" x="494" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2853" y="0"/>
+</item>
+<item historyLabel="pdo.h" index="1">
+<position info="not_deleted" x="494" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2853" y="0"/>
+</item>
+<item historyLabel="pdo.h" index="1">
+<position info="not_deleted" x="578" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
 <position/>
 </item>
 <item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="803" y="0"/>
+<position info="not_deleted" x="578" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1701" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
 <position/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="803" y="0"/>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2074" y="0"/>
 </item>
 <item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1165" y="0"/>
+<position info="not_deleted" x="2365" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1701" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2172" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1405" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2121" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
 </item>
 <item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="733" y="0"/>
+<position info="not_deleted" x="965" y="0"/>
+</item>
+<item historyLabel="pdo.h" index="1">
+<position info="not_deleted" x="578" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2664" y="0"/>
+</item>
+<item historyLabel="pdo.h" index="1">
+<position info="not_deleted" x="852" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1936" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1701" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1396" y="0"/>
+</item>
+<item historyLabel="pdo.h" index="1">
+<position info="not_deleted" x="852" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2666" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2404" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1634" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2407" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="2728" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1426" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="0">
+<position info="not_deleted" x="1379" y="0"/>
 </item>
 <item active="true" historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1260" y="0"/>
+<position info="not_deleted" x="1426" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -474,11 +466,5 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 </window>
-<mruList>
-<file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
-<persistable>
-<org.coocox.builder.ui.editors.ConfigEditor/>
-</persistable>
-</file>
-</mruList>
+<mruList/>
 </workbench>

@@ -23,7 +23,7 @@ extern "C"
 
 
 
-volatile uint32_t counter1 = 0;
+volatile uint32_t counter1 = 0, cnt2 = 0;
 void GeneralHardwareInit()
 {
 	// Inicjalizacja mikrokontrolera
@@ -50,17 +50,22 @@ void SysTick_Handler(void)
 		Led::Yellow() ^= 1;
 		tick = true;
 	}
-
+	cnt2++;
 }
 
 
-
+unsigned int Angle[1000];
+int Index = 0;
 
 void CAN1_RX0_IRQHandler(void)
 {
 	canDrv.IrqRead();
 	SDO->StackUpdate();
-	// TODO: zapisywanie odebranej pozycji enkodera do tablicy. Wysy³anie zawartosci tablicy do PC w narzêdziach debuggera.
+
+	// Odczytywanie 2 z 4 bajtów pozycji enkodera.
+	if (canDrv.dataRx[canDrv.indexRx].index == 0x181)
+		if (Index < 1000) Angle[Index++] = canDrv.dataRx[canDrv.indexRx].data[0];
+		else int a = 0;
 }
 
 
@@ -86,7 +91,7 @@ int main(void)
 
 
 	sdo.PushCommand(Command.ClearError());
-	sdo.PushCommand(Command.RestoreParam()); // Wyd³u¿yæ czas wykonania?
+	sdo.PushCommand(Command.RestoreParam());
 	sdo.PushCommand(Command.MotorEnable());
 
 	sdo.PushCommand(Command.DisableRPDO());
@@ -95,7 +100,9 @@ int main(void)
 
 	sdo.PushCommand(Command.DisableTPDO());
 	sdo.PushCommand(Command.TransmissionType());
-	sdo.PushCommand(Command.MapTPDO(1, 0x3762, 0, 32));
+	sdo.PushCommand(Command.MapTPDO(1, 0x3762, 0, 32)); // Pozycja enkoderad silnika.
+	//sdo.PushCommand(Command.MapTPDO(2, 0x3A04, 1, 32)); // Prêdkosc enkoderad silnika.
+	//sdo.PushCommand(Command.MapTPDO(3, 0x3262, 0, 32)); // Pr¹d silnika.
 	sdo.PushCommand(Command.EnableTPDO(1));
 
 	sdo.StartSequence();
@@ -108,8 +115,13 @@ int main(void)
     		else pdo.SetOperational();
     	}
 
-    while (true) if (tick) { tick = false; pdo.Send(0); break; }
-    while (true) if (tick) { tick = false; pdo.Read();}
+    while (true) if (cnt2 > 100) { cnt2 = 0; pdo.Send(100); break; }
+    while (true)
+    	{
+    		if (cnt2 > 5) { cnt2 = 0; pdo.Read(0x80); }
+    		//if (cnt2 > 200) { pdo.Read(0x81); }
+    		//if (cnt2 > 300) { cnt2 = 0; pdo.Read(0x82); }
+    	}
 
     return 0;
 }
