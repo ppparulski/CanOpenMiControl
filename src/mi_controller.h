@@ -58,10 +58,10 @@ public:
 	SdoCmd * DisableRPDO() { EnableRPDO(0); }
 
 
-	SdoCmd * TransmissionType()
+	SdoCmd * TransmissionType(int Channel)
 	{
 		cmd.type = 0x23;
-		cmd.index = 0x1800;
+		cmd.index = 0x1800 + Channel;
 		cmd.subindex = 0x02;
 		*(uint32_t*)cmd.data = 0;
 		cmd.data[0] = 0x01;
@@ -74,8 +74,8 @@ public:
 	SdoCmd * MapTPDO(int object, int index, int subIndex, int numberOfBits)
 	{
 		cmd.type = 0x23;
-		cmd.index = 0x1A00;
-		cmd.subindex = object;
+		cmd.index = 0x1A00 + object;
+		cmd.subindex = 01;
 		*(uint32_t*)cmd.data = 0;
 		cmd.data[0] = numberOfBits;
 		cmd.data[1] = subIndex;
@@ -95,15 +95,23 @@ public:
 	SdoCmd * EnableTPDO(int numberOfObjects)
 	{
 		cmd.type = 0x23;
-		cmd.index = 0x1A00;
-		cmd.subindex = 0x00;
+		cmd.index = 0x1A00 + numberOfObjects;
+		cmd.subindex = 0;
 		*(uint32_t*)cmd.data = 0;
-		cmd.data[0] = numberOfObjects;
+		cmd.data[0] = 1;
 		cmd.timeout = 10;
 		cmd.trials = -1;
 		return &cmd;
 	}
-	SdoCmd * DisableTPDO() { EnableTPDO(0); }
+	SdoCmd * DisableTPDO(int numberOfObjects) {
+				cmd.type = 0x23;
+				cmd.index = 0x1A00 + numberOfObjects;
+				cmd.subindex = 0;
+				*(uint32_t*)cmd.data = 0;
+				cmd.data[0] = 0;
+				cmd.timeout = 10;
+				cmd.trials = -1;
+				return &cmd; }
 
 	SdoCmd * NMTOperational()
 	{

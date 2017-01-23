@@ -54,8 +54,8 @@ void SysTick_Handler(void)
 }
 
 
-unsigned int Angle[1000];
-int Index = 0;
+unsigned int Angle[1000], Current[1000], Velocity[1000];
+int Index = 0, Index2 = 0, Index3;
 
 void CAN1_RX0_IRQHandler(void)
 {
@@ -65,6 +65,16 @@ void CAN1_RX0_IRQHandler(void)
 	// Odczytywanie 2 z 4 bajtów pozycji enkodera.
 	if (canDrv.dataRx[canDrv.indexRx].index == 0x181)
 		if (Index < 1000) Angle[Index++] = canDrv.dataRx[canDrv.indexRx].data[0];
+		else int a = 0;
+
+	// Odczytywanie 2 z 4 bajtów pozycji enkodera.
+	if (canDrv.dataRx[canDrv.indexRx].index == 0x281)
+		if (Index2 < 1000) Velocity[Index2++] = canDrv.dataRx[canDrv.indexRx].data[0];
+		else int a = 0;
+
+	// Odczytywanie 2 z 4 bajtów pozycji enkodera.
+	if (canDrv.dataRx[canDrv.indexRx].index == 0x381)
+		if (Index3 < 1000) Current[Index3++] = canDrv.dataRx[canDrv.indexRx].data[0];
 		else int a = 0;
 }
 
@@ -98,12 +108,27 @@ int main(void)
 	sdo.PushCommand(Command.MapRPDO(1, Command.SetSubvel(0), 32)); // Alternatywna sk³adnia: MapRPDO(1, 0x3500, 0, 32)
 	sdo.PushCommand(Command.EnableRPDO(1));
 
-	sdo.PushCommand(Command.DisableTPDO());
-	sdo.PushCommand(Command.TransmissionType());
-	sdo.PushCommand(Command.MapTPDO(1, 0x3762, 0, 32)); // Pozycja enkoderad silnika.
-	//sdo.PushCommand(Command.MapTPDO(2, 0x3A04, 1, 32)); // Prêdkosc enkoderad silnika.
-	//sdo.PushCommand(Command.MapTPDO(3, 0x3262, 0, 32)); // Pr¹d silnika.
+
+	// TPDO 0
+	sdo.PushCommand(Command.DisableTPDO(0));
+	sdo.PushCommand(Command.TransmissionType(0));
+	sdo.PushCommand(Command.MapTPDO(0, 0x3762, 0, 32)); // Pozycja enkodera (liczba impulsów).
+	sdo.PushCommand(Command.EnableTPDO(0));
+
+	// TPDO 1
+	sdo.PushCommand(Command.DisableTPDO(1));
+	sdo.PushCommand(Command.TransmissionType(1));
+	sdo.PushCommand(Command.MapTPDO(1, 0x3A04, 1, 32)); // Prêdkosc enkodera.
 	sdo.PushCommand(Command.EnableTPDO(1));
+
+	// TPDO 2
+	sdo.PushCommand(Command.DisableTPDO(2));
+	sdo.PushCommand(Command.TransmissionType(2));
+	sdo.PushCommand(Command.MapTPDO(2, 0x3262, 0, 32)); // Pr¹d silnika.
+	sdo.PushCommand(Command.EnableTPDO(2));
+
+
+
 
 	sdo.StartSequence();
 
@@ -115,13 +140,8 @@ int main(void)
     		else pdo.SetOperational();
     	}
 
-    while (true) if (cnt2 > 100) { cnt2 = 0; pdo.Send(100); break; }
-    while (true)
-    	{
-    		if (cnt2 > 5) { cnt2 = 0; pdo.Read(0x80); }
-    		//if (cnt2 > 200) { pdo.Read(0x81); }
-    		//if (cnt2 > 300) { cnt2 = 0; pdo.Read(0x82); }
-    	}
+    while (true) if (tick) { tick = false; pdo.Send(100); break; } // Ustawienie prêdkosci zadanej.
+    while (true) if (cnt2 > 20) { cnt2 = 0; pdo.Read(0x80); } // Cykliczne wywo³ywanie pobrania pomiarów.
 
     return 0;
 }
