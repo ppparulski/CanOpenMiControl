@@ -7,9 +7,11 @@
 #include "mi_controller.h"
 #include "led_interface.h"
 
+#include "math.h"
+
 #define CPU_CLK 168000000L
 
-bool tick = false;
+bool tick = false, tick2 = false, tick3 = false;
 CanDrv canDrv;
 Sdo* SDO;
 
@@ -50,11 +52,12 @@ void SysTick_Handler(void)
 		Led::Yellow() ^= 1;
 		tick = true;
 	}
-	cnt2++;
+	if (cnt2++ > 20) { cnt2 = 0; tick2 = true; }
+	if (cnt2 == 10) tick3 = true;
+
 }
 
-
-unsigned int Angle[1000], Current[1000], Velocity[1000];
+int Angle[1000], Current[1000], Velocity[1000], Desired[1000];
 int Index = 0, Index2 = 0, Index3;
 
 void CAN1_RX0_IRQHandler(void)
@@ -129,7 +132,6 @@ int main(void)
 
 
 
-
 	sdo.StartSequence();
 
     while(!pdo.Operational)
@@ -140,8 +142,18 @@ int main(void)
     		else pdo.SetOperational();
     	}
 
-    while (true) if (tick) { tick = false; pdo.Send(100); break; } // Ustawienie prêdkosci zadanej.
-    while (true) if (cnt2 > 20) { cnt2 = 0; pdo.Read(0x80); } // Cykliczne wywo³ywanie pobrania pomiarów.
+
+    int t = 0;
+    while (true)
+	{
+    	if (tick3)
+    	{
+    		tick3 = false;
+    		if (++t < 1000) Desired[t] = 100*sin(0.1*t);
+    		pdo.Send(Desired[t]); // Ustawienie prêdkosci zadanej.
+    	}
+    	if (tick2) { tick2 = false; pdo.Read(0x80); } // Wywo³ywanie pobrania pomiarów.
+	}
 
     return 0;
 }
