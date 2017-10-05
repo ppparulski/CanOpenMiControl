@@ -14,25 +14,65 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="C:/Users/Student/Pracownia 2016/CanOpenMiControl/main.cpp" title="main.cpp" tooltip="C:/Users/Student/Pracownia 2016/CanOpenMiControl/main.cpp" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="pdo.hpp" partName="pdo.hpp" path="E:/prywatne/projekty/can_open/new/src/pdo.hpp" title="pdo.hpp" tooltip="E:/prywatne/projekty/can_open/new/src/pdo.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/pdo.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="211" selectionOffset="917" selectionTopPixel="435"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="nmt.hpp" partName="nmt.hpp" path="E:/prywatne/projekty/can_open/new/src/nmt.hpp" title="nmt.hpp" tooltip="E:/prywatne/projekty/can_open/new/src/nmt.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/nmt.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="993" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mi_control_custom_interface.hpp" partName="mi_control_custom_interface.hpp" path="E:/praca/projekty/canopen/CanOpenMiControl/src/mi_control_custom_interface.hpp" title="mi_control_custom_interface.hpp" tooltip="E:/praca/projekty/canopen/CanOpenMiControl/src/mi_control_custom_interface.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/mi_control_custom_interface.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="can_open.hpp" partName="can_open.hpp" path="E:/prywatne/projekty/can_open/new/src/can_open.hpp" title="can_open.hpp" tooltip="E:/prywatne/projekty/can_open/new/src/can_open.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/can_open.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="628" selectionTopPixel="30"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mi_control.hpp" partName="mi_control.hpp" path="E:/prywatne/projekty/can_open/new/src/mi_control.hpp" title="mi_control.hpp" tooltip="E:/prywatne/projekty/can_open/new/src/mi_control.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/mi_control.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3005" selectionTopPixel="1710"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="can_drv.hpp" partName="can_drv.hpp" path="E:/prywatne/projekty/can_open/new/src/can_drv.hpp" title="can_drv.hpp" tooltip="E:/prywatne/projekty/can_open/new/src/can_drv.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/can_drv.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="3943" selectionTopPixel="2775"/>
+</editor>
+<editor id="org.eclipse.ui.DefaultTextEditor" name="link.ld" partName="link.ld" title="link.ld" tooltip="E:\praca\projekty\canopen\CanOpenMiControl\link.ld" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" uri="file:/E:/praca/projekty/canopen/CanOpenMiControl/link.ld"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="70" selectionTopPixel="1156"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="system_stm32f4xx.c" partName="system_stm32f4xx.c" path="E:/praca/projekty/canopen/CanOpenMiControl/cmsis_boot/system_stm32f4xx.c" title="system_stm32f4xx.c" tooltip="E:/praca/projekty/canopen/CanOpenMiControl/cmsis_boot/system_stm32f4xx.c" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/cmsis_boot/system_stm32f4xx.c"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="15821" selectionTopPixel="5730"/>
+</editor>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="motor_drv.hpp" partName="motor_drv.hpp" path="E:/prywatne/projekty/can_open/new/src/motor_drv.hpp" title="motor_drv.hpp" tooltip="E:/prywatne/projekty/can_open/new/src/motor_drv.hpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/motor_drv.hpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1700" selectionTopPixel="315"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" partName="main.cpp" path="E:/prywatne/projekty/can_open/new/main.cpp" title="main.cpp" tooltip="E:/prywatne/projekty/can_open/new/main.cpp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/main.cpp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3469" selectionTopPixel="1680"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2554" selectionTopPixel="915"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="sdo.h" partName="sdo.h" path="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/sdo.h" title="sdo.h" tooltip="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/sdo.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/sdo.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1819" selectionTopPixel="886"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mi_control.cpp" partName="mi_control.cpp" path="E:/prywatne/projekty/can_open/new/src/mi_control.cpp" title="mi_control.cpp" tooltip="E:/prywatne/projekty/can_open/new/src/mi_control.cpp" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/mi_control.cpp"/>
+<editorState selectionHorizontalPixel="0" selectionLength="27" selectionOffset="0" selectionTopPixel="0"/>
 </editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="pdo.h" partName="pdo.h" path="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/pdo.h" title="pdo.h" tooltip="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/pdo.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/pdo.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="578" selectionTopPixel="46"/>
-</editor>
-<editor id="org.eclipse.cdt.ui.editor.CEditor" name="mi_controller.h" partName="mi_controller.h" path="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/mi_controller.h" title="mi_controller.h" tooltip="C:/Users/Student/Pracownia 2016/CanOpenMiControl/src/mi_controller.h" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/mi_controller.h"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="589" selectionTopPixel="101"/>
+<editor id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx.h" partName="stm32f4xx.h" path="E:/prywatne/projekty/can_open/new/cmsis_boot/stm32f4xx.h" title="stm32f4xx.h" tooltip="E:/prywatne/projekty/can_open/new/cmsis_boot/stm32f4xx.h" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CanOpen/cmsis_boot/stm32f4xx.h"/>
+<editorState selectionHorizontalPixel="0" selectionLength="12" selectionOffset="9107" selectionTopPixel="2403"/>
 </editor>
 </editors>
 <views>
@@ -41,15 +81,20 @@
 <view IMemento.internal.id="" org.eclipse.search.lastActivation="0"/>
 </viewState>
 </view>
-<view id="org.coocox.codebugger.trace.ui.traceview" partName="Semihosting">
-<viewState/>
-</view>
 <view id="org.eclipse.debug.ui.DebugView" partName="Debug">
 <viewState/>
 </view>
 <view id="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" partName="Memory Browser">
 <viewState>
-<MemoryBroser ComboItemsValue="0x20010678;0x200125b8;0x20011618;" FocuseTabIndex="0" TabsValue="" TextValue="0x20011618" horizontalPosition="0" verticalPosition="0"/>
+<MemoryBroser ComboItemsValue="cmd;sdo;" FocuseTabIndex="0" TabsValue="" TextValue="sdo" horizontalPosition="0" verticalPosition="0"/>
+</viewState>
+</view>
+<view id="org.coocox.coassistant.view.CoAssistantView_debug" partName="Peripherals">
+<viewState horizontalPosition="0" verticalPosition="43">
+<selection>
+<element name="CAN1"/>
+</selection>
+<registerValues baseAddress="Base Address: 0x40006400" description="Description:  Controller area network"/>
 </viewState>
 </view>
 <view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
@@ -66,27 +111,35 @@
 </view>
 <view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
 <viewState>
-<ExpressionKeySet ExpKeys="Angle,Angle,Angle,Current,Velocity,"/>
+<ExpressionKeySet ExpKeys="sdo,status,"/>
 </viewState>
-</view>
-<view id="org.coocox.component.ui.ComponentView" partName="Components">
-<viewState/>
 </view>
 <view id="org.coocox.builder.ui.views.ProjectView" partName="Project">
 <viewState CommonNavigator.LINKING_ENABLED="0" horizontalPosition="0" org.eclipse.ui.navigator.resources.workingSets.showTopLevelWorkingSets="0" verticalPosition="0">
 <expanded>
 <element path="/CanOpen"/>
+<element path="/CanOpen/cmsis"/>
+<element path="/CanOpen/cmsis_boot"/>
 </expanded>
 <selection>
-<element path="/CanOpen/mi_controller.h"/>
+<element path="/CanOpen/cmsis_boot/stm32f4xx.h"/>
 </selection>
 </viewState>
+</view>
+<view id="org.coocox.component.ui.ComponentView" partName="Components">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.RegisterView" partName="Registers">
+<viewState/>
 </view>
 <view id="org.eclipse.cdt.ui.callHierarchy" partName="Call Hierarchy">
 <viewState showFilesInLabels="false" variableFilter="false"/>
 </view>
 <view id="org.eclipse.ui.console.ConsoleView" partName="Console">
 <viewState/>
+</view>
+<view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view" partName="Disassembly">
+<viewState disassembly.syncActiveContext="true" disassembly.trackExpression="false"/>
 </view>
 <view id="org.coocox.component.ui.Help" partName="Help">
 <viewState/>
@@ -130,6 +183,7 @@
 <view id="org.coocox.component.ui.Help"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <view id="org.coocox.coassistant.view.CoAssistantView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.ui.navigator.ProjectExplorer"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
@@ -148,7 +202,7 @@
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@1f31c4e" ratio="0.75186366" ratioLeft="706" ratioRight="233" relationship="4" relative="org.eclipse.ui.internal.ViewStack@f9746b">
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@1f31c4e" ratio="0.65601707" ratioLeft="616" ratioRight="323" relationship="4" relative="org.eclipse.ui.internal.ViewStack@f9746b">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer"/>
@@ -160,18 +214,19 @@
 </presentation>
 </folder>
 </info>
-<info part="org.coocox.builder.ui.exampleView" ratio="0.2165059" ratioLeft="202" ratioRight="731" relationship="2" relative="org.eclipse.ui.internal.ViewStack@f9746b"/>
+<info part="org.coocox.builder.ui.exampleView" ratio="0.21477214" ratioLeft="410" ratioRight="1499" relationship="2" relative="org.eclipse.ui.internal.ViewStack@f9746b"/>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1d70a78" ratio="0.8059441" ratioLeft="461" ratioRight="111" relationship="2" relative="org.coocox.builder.ui.exampleView">
-<folder activePageID="org.coocox.coassistant.view.CoAssistantView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.debug.ui.BreakpointView" appearance="2" expanded="2">
 <page content="org.coocox.component.ui.Help" label="Help"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.coocox.coassistant.view.CoAssistantView" label="Peripherals"/>
-<page content="org.eclipse.debug.ui.BreakpointView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
 <page content="org.coocox.builder.ui.MoreExampleView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -234,7 +289,6 @@
 <view id="org.eclipse.ui.console.ConsoleView"/>
 <view id="org.eclipse.debug.ui.DebugView"/>
 <view id="org.eclipse.debug.ui.BreakpointView"/>
-<view id="org.coocox.codebugger.trace.ui.traceview"/>
 <view id="org.eclipse.debug.ui.VariableView"/>
 <view id="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser"/>
 <view id="org.eclipse.debug.ui.ExpressionView"/>
@@ -242,6 +296,9 @@
 <view id="org.eclipse.cdt.ui.callHierarchy"/>
 <view id="org.eclipse.search.ui.views.SearchView"/>
 <view id="org.coocox.builder.ui.views.ProjectView"/>
+<view id="org.eclipse.debug.ui.RegisterView"/>
+<view id="org.coocox.coassistant.view.CoAssistantView_debug"/>
+<view id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
 <fastViewBars/>
 <viewLayoutRec closeable="false" id="org.eclipse.debug.ui.DebugView"/>
 <layout>
@@ -261,7 +318,7 @@
 </folder>
 </info>
 <info folder="true" part="org.eclipse.ui.internal.ViewStack@1d8b476" ratio="0.64962727" ratioLeft="610" ratioRight="329" relationship="4" relative="org.eclipse.ui.internal.ViewStack@132bfeb">
-<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
 <page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
@@ -272,15 +329,15 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@e7dfd0" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1d8b476">
-<folder activePageID="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" appearance="2" expanded="2">
-<page content="org.coocox.codebugger.trace.ui.traceview" label="Semihosting"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@e7dfd0" ratio="0.6064257" ratioLeft="1057" ratioRight="686" relationship="2" relative="org.eclipse.ui.internal.ViewStack@1d8b476">
+<folder activePageID="org.eclipse.debug.ui.ExpressionView" appearance="2" expanded="2">
 <page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
 <page content="org.eclipse.cdt.debug.ui.memory.memorybrowser.MemoryBrowser" label="Memory Browser"/>
 <page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
 <page content="org.coocox.component.ui.ComponentView" label="Components"/>
 <page content="org.eclipse.cdt.ui.callHierarchy" label="Call Hierarchy"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="Search"/>
+<page content="org.coocox.codebugger.trace.ui.traceview" label="LabelNotFound"/>
 <page content="org.eclipse.debug.ui.MemoryView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
@@ -289,20 +346,23 @@
 <part id="3"/>
 <part id="4"/>
 <part id="5"/>
-<part id="6"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@6bfcff" ratio="0.738478" ratioLeft="689" ratioRight="244" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb">
-<folder appearance="2" expanded="2">
-<page content="org.coocox.coassistant.view.CoAssistantView_debug" label="LabelNotFound"/>
-<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@6bfcff" ratio="0.6177249" ratioLeft="934" ratioRight="578" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb">
+<folder activePageID="org.coocox.coassistant.view.CoAssistantView_debug" appearance="2" expanded="2">
+<page content="org.eclipse.debug.ui.RegisterView" label="Registers"/>
+<page content="org.coocox.coassistant.view.CoAssistantView_debug" label="Peripherals"/>
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="Disassembly"/>
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
-<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+</presentation>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.16291533" ratioLeft="152" ratioRight="781" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb"/>
+<info part="org.eclipse.ui.editorss" ratio="0.13080895" ratioLeft="152" ratioRight="1010" relationship="2" relative="org.eclipse.ui.internal.ViewStack@132bfeb"/>
 </mainWindow>
 </layout>
 </perspective>
@@ -310,162 +370,163 @@
 <workingSets/>
 <navigationHistory>
 <editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/mi_control.hpp"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/main.cpp"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/pdo.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/mi_controller.h"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/sdo.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/can_drv.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/motor_drv.hpp"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/sdo.hpp"/>
+<editor factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="E:\tools\arm\GNU Tools ARM Embedded\6 2017-q1-update\arm-none-eabi\include\string.h" project="CanOpen"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/mi_control.cpp"/>
 <editor factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor">
 <org.coocox.builder.ui.editors.ConfigEditor/>
 </editor>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/pdo.h"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/cmsis_boot/startup/startup_stm32f4xx.c"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" path="/CanOpen/cmsis_boot/stm32f4xx.h"/>
 </editors>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2511" y="0"/>
+<item historyLabel="motor_drv.hpp" index="3">
+<position info="not_deleted" x="824" y="0"/>
 </item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="1455" y="0"/>
+<item historyLabel="mi_control.hpp" index="0">
+<position info="not_deleted" x="3005" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="652" y="0"/>
+<item historyLabel="sdo.hpp" index="4">
+<position info="not_deleted" x="260" y="0"/>
 </item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="1502" y="0"/>
+<item historyLabel="can_drv.hpp" index="2">
+<position info="not_deleted" x="3832" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="646" y="5"/>
+<item historyLabel="string.h" index="5">
+<position info="not_deleted" x="453" y="63"/>
 </item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="1502" y="0"/>
+<item historyLabel="can_drv.hpp" index="2">
+<position info="not_deleted" x="3855" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="646" y="5"/>
+<item historyLabel="mi_control.cpp" index="6">
+<position info="not_deleted" x="0" y="27"/>
 </item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="1819" y="0"/>
+<item historyLabel="motor_drv.hpp" index="3">
+<position info="not_deleted" x="1700" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="652" y="0"/>
+<item historyLabel="can_drv.hpp" index="2">
+<position info="not_deleted" x="77" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2302" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2339" y="0"/>
 </item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="3952" y="0"/>
+<item historyLabel="sdo.hpp" index="4">
+<position info="not_deleted" x="2128" y="16"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="652" y="0"/>
+<item historyLabel="sdo.hpp" index="4">
+<position info="not_deleted" x="2690" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2412" y="0"/>
+<item historyLabel="sdo.hpp" index="4">
+<position info="not_deleted" x="1476" y="11"/>
 </item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="3952" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2758" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2412" y="0"/>
+<item historyLabel="Configuration" index="7"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2758" y="0"/>
 </item>
-<item historyLabel="sdo.h" index="3">
-<position info="not_deleted" x="1819" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1879" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="688" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1965" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2107" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2192" y="0"/>
 </item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="3952" y="0"/>
+<item historyLabel="can_drv.hpp" index="2">
+<position info="not_deleted" x="4142" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="689" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1879" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
+<item historyLabel="startup_stm32f4xx.c" index="8">
 <position/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="689" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1286" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
+<item historyLabel="can_drv.hpp" index="2">
+<position info="not_deleted" x="4187" y="8"/>
+</item>
+<item historyLabel="can_drv.hpp" index="2">
+<position info="not_deleted" x="4215" y="0"/>
+</item>
+<item historyLabel="can_drv.hpp" index="2">
+<position info="not_deleted" x="3943" y="8"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2098" y="0"/>
+</item>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2556" y="0"/>
+</item>
+<item historyLabel="startup_stm32f4xx.c" index="8">
 <position/>
 </item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="589" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2556" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="689" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1243" y="18"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2412" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1314" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="689" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="415" y="0"/>
 </item>
-<item historyLabel="mi_controller.h" index="2">
-<position info="not_deleted" x="589" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1879" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="1">
-<position info="not_deleted" x="688" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2098" y="20"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2412" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2556" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3192" y="0"/>
+<item historyLabel="startup_stm32f4xx.c" index="8">
+<position info="not_deleted" x="20995" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2974" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="2556" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3475" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="421" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1905" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1250" y="0"/>
 </item>
-<item historyLabel="Configuration" index="4"/>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="2609" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="409" y="18"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1989" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="353" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1942" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1044" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1665" y="0"/>
+<item historyLabel="stm32f4xx.h" index="9">
+<position info="not_deleted" x="9107" y="12"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1535" y="17"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1331" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1236" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1879" y="0"/>
 </item>
-<item historyLabel="pdo.h" index="5">
-<position info="not_deleted" x="578" y="0"/>
+<item historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1272" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3620" y="0"/>
+<item historyLabel="motor_drv.hpp" index="3">
+<position info="not_deleted" x="1700" y="0"/>
 </item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3612" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3580" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="3558" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1176" y="0"/>
-</item>
-<item historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1989" y="0"/>
-</item>
-<item active="true" historyLabel="main.cpp" index="0">
-<position info="not_deleted" x="1158" y="0"/>
+<item active="true" historyLabel="main.cpp" index="1">
+<position info="not_deleted" x="1272" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -474,10 +535,31 @@
 <actionBarAdvisor/>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stm32f4xx.h" tooltip="CanOpen/cmsis_boot/stm32f4xx.h">
+<persistable path="/CanOpen/cmsis_boot/stm32f4xx.h"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="startup_stm32f4xx.c" tooltip="CanOpen/cmsis_boot/startup/startup_stm32f4xx.c">
+<persistable path="/CanOpen/cmsis_boot/startup/startup_stm32f4xx.c"/>
+</file>
 <file factoryID="org.coocox.builder.ui.persistent.PersistentElementFactory" id="org.coocox.builder.ui.editors.ConfigEditor" name="" tooltip="">
 <persistable>
 <org.coocox.builder.ui.editors.ConfigEditor/>
 </persistable>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="mi_control.cpp" tooltip="CanOpen/mi_control.cpp">
+<persistable path="/CanOpen/mi_control.cpp"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="string.h" tooltip="E:\tools\arm\GNU Tools ARM Embedded\6 2017-q1-update\arm-none-eabi\include\string.h">
+<persistable path="E:\tools\arm\GNU Tools ARM Embedded\6 2017-q1-update\arm-none-eabi\include\string.h" project="CanOpen"/>
+</file>
+<file factoryID="org.eclipse.cdt.ui.ExternalEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="stddef.h" tooltip="E:\tools\arm\GNU Tools ARM Embedded\6 2017-q1-update\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h">
+<persistable path="E:\tools\arm\GNU Tools ARM Embedded\6 2017-q1-update\lib\gcc\arm-none-eabi\6.3.1\include\stddef.h" project="CanOpen"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" tooltip="CanOpen/main.cpp">
+<persistable path="/CanOpen/main.cpp"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.cdt.ui.editor.CEditor" name="main.cpp" tooltip="CanOpen/main.cpp">
+<persistable path="/CanOpen/main.cpp"/>
 </file>
 </mruList>
 </workbench>

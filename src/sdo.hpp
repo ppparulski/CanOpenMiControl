@@ -1,6 +1,7 @@
 #pragma once
 
-#include "can_drv.h"
+#include "can_drv.hpp"
+#include "can_open.hpp"
 #include "stdint.h"
 #include "stddef.h"
 #include "string.h"
@@ -21,10 +22,13 @@ class Sdo
 {
 
 	static const uint8_t stackSize = 32;
-	static const uint16_t idWrOffset = 0x600;
-	static const uint16_t idRdOffset = 0x580;
+	static const uint16_t idWrOffset = CanOpenObjects::sdoTx;
+	static const uint16_t idRdOffset = CanOpenObjects::sdoRx;
 
 	CanDrv * canDrv;
+
+	uint16_t idWr;
+	uint16_t idRd;
 
 public:
 
@@ -46,8 +50,6 @@ public:
 
 	uint32_t mailboxData[2];
 	uint8_t id;
-	uint16_t idWr;
-	uint16_t idRd;
 
 	Sdo(CanDrv * canDrv, uint16_t id)
 	{
@@ -66,10 +68,12 @@ public:
 		//mask = m->mbox_tx_mask;
 	}
 
-	void PushCommand(SdoCmd * pCmd)
+	void PushCommand(const SdoCmd &c)
 	{
-		memcpy((void*)&cmd[cmdNumber++], (void*)pCmd, sizeof(SdoCmd));
-		cmdNumber %= stackSize;
+		//cmd[cmdNumber++] = cmd;
+		memcpy((void*)&cmd[cmdNumber], (void*)&c, sizeof(SdoCmd));
+		cmdNumber++;
+		cmdNumber &= stackSize-1;
 	}
 
 	// wype³nienie skrzynki trescia
@@ -83,29 +87,25 @@ public:
 		//canDrv->dataTx
 		time = c->timeout;
 		trials = c->trials;
-		transmitted = 0;
-		received = 0;
+		transmitted = false;
+		received = false;
 
-		// Przekazanie rozkazu do sterownika Can
-		canDrv->dataTx[0].index = idWr;
-		canDrv->dataTx[0].data[0] = mailboxData[0];
-		canDrv->dataTx[0].data[1] = mailboxData[1];
-		canDrv->dataTx[0].dataNumber = 8;
+		CanMsg canMsg;
 
-		canDrv->SetWrData();
+		canMsg.index = idWr;
+		canMsg.data[0] = mailboxData[0];
+		canMsg.data[1] = mailboxData[1];
+		canMsg.dataNumber = 8;
+
+		canDrv->SetTxMsg(canMsg);
 	}
 
 	void StartSequence()
 	{
 		cmdIndex = 0;
+		startTrigger = true;
 		PrepareData();
 		completed = false;
-	}
-
-	void SendTrigger()
-	{
-		if (!completed) canDrv->SendTrigger();
-		// TODO: odliczanie prób.
 	}
 
 	void StackUpdate()
@@ -132,7 +132,7 @@ public:
 			{
 				cmdIndex++;
 				cmdIndex %= stackSize;
-				if (++cmdIndex < cmdNumber)
+				if (cmdIndex < cmdNumber)
 				{
 					PrepareData();
 					newCmd = true;

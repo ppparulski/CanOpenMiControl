@@ -1,19 +1,24 @@
 #include "stm32f4xx_conf.h"
 
 
-#include "sdo.h"
-#include "pdo.h"
-#include "can_drv.h"
-#include "mi_controller.h"
+#include "sdo.hpp"
+#include "pdo.hpp"
+#include "can_drv.hpp"
+#include "mi_control.hpp"
 #include "led_interface.h"
+#include "motor_drv.hpp"
+
+#include "can_open.hpp"
 
 #include "math.h"
 
+
 #define CPU_CLK 168000000L
 
-bool tick = false, tick2 = false, tick3 = false;
+volatile bool tick;
+
 CanDrv canDrv;
-Sdo* SDO;
+MotorDrv * motor;
 
 
 
@@ -21,6 +26,7 @@ extern "C"
 {
 	void SysTick_Handler(void);
 	void CAN1_RX0_IRQHandler(void);
+	void CAN1_TX_IRQHandler(void);
 }
 
 
@@ -28,132 +34,127 @@ extern "C"
 volatile uint32_t counter1 = 0, cnt2 = 0;
 void GeneralHardwareInit()
 {
-	// Inicjalizacja mikrokontrolera
-
-
-
-		//**************** port A
-		// ustawienie predkosci pracy linii portu
-		GPIOA->OSPEEDR = GPIO_OSPEEDER_OSPEEDR0_1 | GPIO_OSPEEDER_OSPEEDR4_1;
-		// wybor urzadzen na odpowiednich liniach (wedlug dokumencjacji danego typu procesora)
-		// wybor pracy linii portu
-		GPIOA->MODER |=  GPIO_MODER_MODER1_0 | GPIO_MODER_MODER4_1 | GPIO_MODER_MODER5_1 |GPIO_MODER_MODER6_1 | GPIO_MODER_MODER7_1 | GPIO_MODER_MODER9_1 | GPIO_MODER_MODER13_1 | GPIO_MODER_MODER15_1;
-
-		GPIOA->IDR |= GPIO_IDR_IDR_6;
-
+	//**************** port A
+	// ustawienie predkosci pracy linii portu
+	GPIOA->OSPEEDR = GPIO_OSPEEDER_OSPEEDR0_1 | GPIO_OSPEEDER_OSPEEDR4_1;
+	// wybor urzadzen na odpowiednich liniach (wedlug dokumencjacji danego typu procesora)
+	// wybor pracy linii portu
+	GPIOA->MODER |=  GPIO_MODER_MODER1_0 | GPIO_MODER_MODER4_1 | GPIO_MODER_MODER5_1 |GPIO_MODER_MODER6_1 | GPIO_MODER_MODER7_1 | GPIO_MODER_MODER9_1 | GPIO_MODER_MODER13_1 | GPIO_MODER_MODER15_1;
+	GPIOA->IDR |= GPIO_IDR_IDR_6;
 }
 
 
 void SysTick_Handler(void)
 {
-	if (++counter1==500)
+	if (++counter1==2)
 	{
 		counter1 = 0;
 		Led::Yellow() ^= 1;
 		tick = true;
 	}
-	if (cnt2++ > 20) { cnt2 = 0; tick2 = true; }
-	if (cnt2 == 10) tick3 = true;
-
 }
 
 int Angle[1000], Current[1000], Velocity[1000], Desired[1000];
 int Index = 0, Index2 = 0, Index3;
 
+void CAN1_TX_IRQHandler(void)
+{
+	canDrv.IrqWrite();
+}
+
 void CAN1_RX0_IRQHandler(void)
 {
 	canDrv.IrqRead();
-	SDO->StackUpdate();
 
-	// Odczytywanie 2 z 4 bajtów pozycji enkodera.
-	if (canDrv.dataRx[canDrv.indexRx].index == 0x181)
-		if (Index < 1000) Angle[Index++] = canDrv.dataRx[canDrv.indexRx].data[0];
-		else int a = 0;
+	while (canDrv.GetRxMsg())
+	{
+		auto id = canDrv.rxMsg->index & CanOpenObjects::DeviceMask;
+		auto cob = canDrv.rxMsg->index & CanOpenObjects::ObjectMask;
 
-	// Odczytywanie 2 z 4 bajtów pozycji enkodera.
-	if (canDrv.dataRx[canDrv.indexRx].index == 0x281)
-		if (Index2 < 1000) Velocity[Index2++] = canDrv.dataRx[canDrv.indexRx].data[0];
-		else int a = 0;
+		switch(cob)
+		{
+			case CanOpenObjects::sdoRx:
+				motor->sdo.received = true;
+			break;
 
-	// Odczytywanie 2 z 4 bajtów pozycji enkodera.
-	if (canDrv.dataRx[canDrv.indexRx].index == 0x381)
-		if (Index3 < 1000) Current[Index3++] = canDrv.dataRx[canDrv.indexRx].data[0];
-		else int a = 0;
+			case CanOpenObjects::pdo1Rx:
+
+		    break;
+
+			case CanOpenObjects::pdo2Rx:
+		    break;
+
+			case CanOpenObjects::pdo3Rx:
+		    break;
+
+			case CanOpenObjects::pdo4Rx:
+		    break;
+
+			default:
+			break;
+
+		}
+	}
+
+
 }
 
 
 
 int main(void)
 {
-	Sdo sdo(&canDrv, 1);
-	Pdo pdo(&canDrv, 1);
-	SDO = &sdo;
-	MiControlCmds Command;
-
+	tick = false;
 	SystemInit();
 
 	if (SysTick_Config(CPU_CLK/1000))
-	{ // ustawienie zegara systemowego w programie
+	{
 		while (1);
 	}
 
 	Led::Init();
 	canDrv.Init(CanDrv::B1M);
 
+	MotorDrv motorDrv(&canDrv, 1);
+	motor = &motorDrv;
+
+
+	motor->Configure();
+	canDrv.SendStart();
+
+
+	//canDrv.SendTrigger();
+
 	__enable_irq();
 
 
-	sdo.PushCommand(Command.ClearError());
-	sdo.PushCommand(Command.RestoreParam());
-	sdo.PushCommand(Command.MotorEnable());
-
-	sdo.PushCommand(Command.DisableRPDO());
-	sdo.PushCommand(Command.MapRPDO(1, Command.SetSubvel(0), 32)); // Alternatywna sk³adnia: MapRPDO(1, 0x3500, 0, 32)
-	sdo.PushCommand(Command.EnableRPDO(1));
-
-
-	// TPDO 0
-	sdo.PushCommand(Command.DisableTPDO(0));
-	sdo.PushCommand(Command.TransmissionType(0));
-	sdo.PushCommand(Command.MapTPDO(0, 0x3762, 0, 32)); // Pozycja enkodera (liczba impulsów).
-	sdo.PushCommand(Command.EnableTPDO(0));
-
-	// TPDO 1
-	sdo.PushCommand(Command.DisableTPDO(1));
-	sdo.PushCommand(Command.TransmissionType(1));
-	sdo.PushCommand(Command.MapTPDO(1, 0x3A04, 1, 32)); // Prêdkosc enkodera.
-	sdo.PushCommand(Command.EnableTPDO(1));
-
-	// TPDO 2
-	sdo.PushCommand(Command.DisableTPDO(2));
-	sdo.PushCommand(Command.TransmissionType(2));
-	sdo.PushCommand(Command.MapTPDO(2, 0x3262, 0, 32)); // Pr¹d silnika.
-	sdo.PushCommand(Command.EnableTPDO(2));
-
-
-
-	sdo.StartSequence();
-
-    while(!pdo.Operational)
+	while(true)
+	{
     	if (tick)
     	{
     		tick = false;
-    		if (!sdo.completed) sdo.SendTrigger();
-    		else pdo.SetOperational();
-    	}
 
+    		switch (motor->state)
+    		{
+    			case MotorDrv::Idle:
+    				if (motor->sdo.StackWriteUpdate())
+    					canDrv.SendStart();
+    				if (motor->sdo.completed)
+    					motor->state = MotorDrv::Configured;
+    		    break;
 
-    int t = 0;
-    while (true)
-	{
-    	if (tick3)
-    	{
-    		tick3 = false;
-    		if (++t < 1000) Desired[t] = 100*sin(0.1*t);
-    		pdo.Send(Desired[t]); // Ustawienie prêdkosci zadanej.
+    			case MotorDrv::Configured:
+    				motor->nmt.GoToOperational();
+    				canDrv.SendStart();
+    				motor->state = MotorDrv::Operational;
+    			break;
+
+    			case MotorDrv::Operational:
+    				motor->SetVelocity(20);
+    				SendSynchObj(&canDrv);
+    				canDrv.SendStart();
+    			break;
+    		}
     	}
-    	if (tick2) { tick2 = false; pdo.Read(0x80); } // Wywo³ywanie pobrania pomiarów.
 	}
-
     return 0;
 }
