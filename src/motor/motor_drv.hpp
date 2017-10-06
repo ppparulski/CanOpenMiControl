@@ -14,9 +14,16 @@ public:
 
 	State state;
 
+	float desiredVel;
+	int32_t measuredVel;
+	int32_t measuredPos;
+	int32_t measuredCurrent;
+
+
 	MotorDrv(CanDrv * canDrv, uint8_t id) : sdo(canDrv, id), pdo(canDrv, id), nmt(canDrv, id)
 	{
 		state = Idle;
+		desiredVel = 0;
 		SetPdoCmds();
 
 	}
@@ -58,32 +65,25 @@ public:
 	}
 
 
-	void SetVelocity(float value)
+	void SetVelocity()
 	{
-		pdo.cmdTx[Pdo::Pdo1].data0 = (int32_t) value;
+		pdo.cmdTx[Pdo::Pdo1].data0 = (int32_t) desiredVel;
 		pdo.Send(Pdo::Pdo1);
 	}
 
-	float ReadEncoder()
+	float ReadPosition(volatile CanMsg * msg)
 	{
-		// Odczytywanie 2 z 4 bajtów pozycji enkodera.
-		/*if (canDrv.dataRx[canDrv.indexRxStore].index == 0x181)
-			if (Index < 1000) Angle[Index++] = canDrv.dataRx[canDrv.indexRxStore].data[0];
-			else int a = 0;*/
+		measuredPos = (int32_t) msg->data[0];
 	}
 
-	float ReadVelocity()
+	float ReadVelocity(volatile CanMsg * msg)
 	{
-		/*if (canDrv.dataRx[canDrv.indexRxStore].index == 0x281)
-			if (Index2 < 1000) Velocity[Index2++] = canDrv.dataRx[canDrv.indexRxStore].data[0];
-			else int a = 0;*/
+		measuredVel = (int32_t) msg->data[0];
 	}
 
-	float ReadCurrent()
+	float ReadCurrent(volatile CanMsg * msg)
 	{
-		/*if (canDrv.dataRx[canDrv.indexRxStore].index == 0x381)
-			if (Index3 < 1000) Current[Index3++] = canDrv.dataRx[canDrv.indexRxStore].data[0];
-			else int a = 0;*/
+		measuredCurrent = (int32_t) msg->data[0];
 	}
 
 

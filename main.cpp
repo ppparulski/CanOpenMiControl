@@ -5,8 +5,9 @@
 #include "pdo.hpp"
 #include "can_drv.hpp"
 #include "mi_control.hpp"
-#include "led_interface.h"
 #include "motor_drv.hpp"
+#include "led_interface.h"
+
 
 #include "can_open.hpp"
 
@@ -20,7 +21,7 @@ volatile bool tick;
 CanDrv canDrv;
 MotorDrv * motor;
 
-
+uint32_t appClk;
 
 extern "C"
 {
@@ -32,6 +33,11 @@ extern "C"
 
 
 volatile uint32_t counter1 = 0, cnt2 = 0;
+
+volatile uint32_t indexTable = 0;
+volatile int32_t bufData[1024];
+
+
 void GeneralHardwareInit()
 {
 	//**************** port A
@@ -46,6 +52,7 @@ void GeneralHardwareInit()
 
 void SysTick_Handler(void)
 {
+	appClk++;
 	if (++counter1==2)
 	{
 		counter1 = 0;
@@ -53,9 +60,6 @@ void SysTick_Handler(void)
 		tick = true;
 	}
 }
-
-int Angle[1000], Current[1000], Velocity[1000], Desired[1000];
-int Index = 0, Index2 = 0, Index3;
 
 void CAN1_TX_IRQHandler(void)
 {
@@ -78,13 +82,18 @@ void CAN1_RX0_IRQHandler(void)
 			break;
 
 			case CanOpenObjects::pdo1Rx:
-
+				motor->ReadPosition(canDrv.rxMsg);
 		    break;
 
 			case CanOpenObjects::pdo2Rx:
+				motor->ReadVelocity(canDrv.rxMsg);
+				// for debug purposes
+				bufData[indexTable++] = motor->measuredVel;
+				indexTable &= 1024-1;
 		    break;
 
 			case CanOpenObjects::pdo3Rx:
+				motor->ReadCurrent(canDrv.rxMsg);
 		    break;
 
 			case CanOpenObjects::pdo4Rx:
@@ -94,16 +103,18 @@ void CAN1_RX0_IRQHandler(void)
 			break;
 
 		}
+
 	}
 
 
 }
 
 
-
 int main(void)
 {
 	tick = false;
+
+	appClk = 0;
 	SystemInit();
 
 	if (SysTick_Config(CPU_CLK/1000))
@@ -121,9 +132,6 @@ int main(void)
 	motor->Configure();
 	canDrv.SendStart();
 
-
-	//canDrv.SendTrigger();
-
 	__enable_irq();
 
 
@@ -131,6 +139,8 @@ int main(void)
 	{
     	if (tick)
     	{
+
+    		float time = (float) appClk * 0.001;
     		tick = false;
 
     		switch (motor->state)
@@ -149,7 +159,9 @@ int main(void)
     			break;
 
     			case MotorDrv::Operational:
-    				motor->SetVelocity(20);
+    				motor->desiredVel = 100.0f*sinf(5*time);
+
+    				motor->SetVelocity();
     				SendSynchObj(&canDrv);
     				canDrv.SendStart();
     			break;

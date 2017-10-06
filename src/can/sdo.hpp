@@ -4,7 +4,7 @@
 #include "can_open.hpp"
 #include "stdint.h"
 #include "stddef.h"
-#include "string.h"
+#include "mem.hpp"
 
 
 typedef struct
@@ -70,8 +70,8 @@ public:
 
 	void PushCommand(const SdoCmd &c)
 	{
-		//cmd[cmdNumber++] = cmd;
-		memcpy((void*)&cmd[cmdNumber], (void*)&c, sizeof(SdoCmd));
+		DataCopy((uint8_t*)&cmd[cmdNumber], (uint8_t*)&c, sizeof(SdoCmd));
+		//memcpy((void*)&cmd[cmdNumber], (void*)&c, sizeof(SdoCmd));
 		cmdNumber++;
 		cmdNumber &= stackSize-1;
 	}

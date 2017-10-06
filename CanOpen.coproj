@@ -8,16 +8,19 @@
         <Option name="UseFPU" value="0"/>
         <Option name="UserEditCompiler" value="-std=c++11 "/>
         <Option name="SupportCPlusplus" value="1"/>
-        <Option name="FPU" value="2"/>
+        <Option name="FPU" value="0"/>
         <Includepaths>
           <Includepath path="."/>
+          <Includepath path="src/can"/>
+          <Includepath path="src/motor"/>
+          <Includepath path="src/cpu"/>
+          <Includepath path="src/tools"/>
         </Includepaths>
         <DefinedSymbols>
           <Define name="STM32F407VG"/>
           <Define name="STM32F4XX"/>
           <Define name="VECT_TAB_SRAM"/>
           <Define name="SUPPORT_CPLUSPLUS"/>
-          <Define name="__FPU_USED"/>
         </DefinedSymbols>
       </Compile>
       <Link useDefault="0">
@@ -25,9 +28,9 @@
         <Option name="UserEditLinkder" value=""/>
         <Option name="UseMemoryLayout" value="1"/>
         <Option name="nostartfiles" value="0"/>
-        <Option name="LTO" value="1"/>
+        <Option name="LTO" value="0"/>
         <Option name="IsNewStartupCode" value="1"/>
-        <Option name="Library" value="Not use C Library"/>
+        <Option name="Library" value="Retarget"/>
         <Option name="UserEditLinker" value="--entry=main; -lstdc++; "/>
         <Option name="DiscardUnusedSections" value="1"/>
         <LinkedLibraries/>
@@ -37,7 +40,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
         </MemoryAreas>
-        <LocateLinkFile path="../../../../tools/arm/coocox/coide/configuration/programdata/canopen/link.ld" type="0"/>
+        <LocateLinkFile path="../../../../tools/arm/coocox/coide/configuration/programdata/canopen/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -69,7 +72,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F4xx_1024.elf"/>
-      <Option name="org.coocox.codebugger.gdbjtag.coredebugInRamInitCommands" value="cd E:/prywatne/projekty/can_open/new/CanOpen/Debug/bin
+      <Option name="org.coocox.codebugger.gdbjtag.coredebugInRamInitCommands" value="cd E:/prywatne/projekty/can_open/canopenstm32/CanOpen/Debug/bin
 restore CanOpen.elf
 set {unsigned int*}0xE000ED08 = 0x20000000
 set $sp = {unsigned int*}0x20000000
@@ -83,29 +86,25 @@ set $pc = {unsigned int*}0x20000004
     <Component id="500" name="CMSIS BOOT" path="" type="2"/>
   </Components>
   <Files>
+    <File name="mem.hpp" path="src/tools/mem.hpp" type="1"/>
     <File name="cmsis" path="" type="2"/>
+    <File name="can" path="" type="2"/>
     <File name="cmsis_boot/startup/startup_stm32f4xx.c" path="cmsis_boot/startup/startup_stm32f4xx.c" type="1"/>
-    <File name="mi_control.cpp" path="src/mi_control.cpp" type="1"/>
     <File name="cmsis/core_cmInstr.h" path="cmsis/core_cmInstr.h" type="1"/>
-    <File name="can_drv.hpp" path="src/can_drv.hpp" type="1"/>
-    <File name="pdo.hpp" path="src/pdo.hpp" type="1"/>
     <File name="main.cpp" path="main.cpp" type="1"/>
-    <File name="mi_control.hpp" path="src/mi_control.hpp" type="1"/>
+    <File name="can/sdo.hpp" path="src/can/sdo.hpp" type="1"/>
     <File name="cmsis_boot" path="" type="2"/>
-    <File name="nmt.hpp" path="src/nmt.hpp" type="1"/>
-    <File name="sdo.hpp" path="src/sdo.hpp" type="1"/>
+    <File name="can/nmt.hpp" path="src/can/nmt.hpp" type="1"/>
+    <File name="can/can_open.hpp" path="src/can/can_open.hpp" type="1"/>
+    <File name="can/pdo.hpp" path="src/can/pdo.hpp" type="1"/>
     <File name="cmsis_boot/stm32f4xx_conf.h" path="cmsis_boot/stm32f4xx_conf.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.h" path="cmsis_boot/system_stm32f4xx.h" type="1"/>
-    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="cmsis/core_cm4_simd.h" path="cmsis/core_cm4_simd.h" type="1"/>
     <File name="cmsis_boot/startup" path="" type="2"/>
-    <File name="mi_control_custom_interface.hpp" path="src/mi_control_custom_interface.hpp" type="1"/>
-    <File name="led_interface.h" path="src/led_interface.h" type="1"/>
+    <File name="cmsis_boot/stm32f4xx.h" path="cmsis_boot/stm32f4xx.h" type="1"/>
     <File name="cmsis/core_cmFunc.h" path="cmsis/core_cmFunc.h" type="1"/>
     <File name="cmsis/core_cm4.h" path="cmsis/core_cm4.h" type="1"/>
     <File name="cmsis_boot/system_stm32f4xx.c" path="cmsis_boot/system_stm32f4xx.c" type="1"/>
-    <File name="motor_drv.hpp" path="src/motor_drv.hpp" type="1"/>
-    <File name="hdr_bitband.h" path="src/hdr_bitband.h" type="1"/>
-    <File name="can_open.hpp" path="src/can_open.hpp" type="1"/>
+    <File name="can/can_drv.hpp" path="src/can/can_drv.hpp" type="1"/>
   </Files>
 </Project>

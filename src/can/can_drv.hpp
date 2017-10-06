@@ -2,6 +2,7 @@
 
 #include "stm32f4xx.h"
 #include <stddef.h>
+#include "mem.hpp"
 #include <string.h>
 
 struct CanMsg
@@ -190,6 +191,7 @@ public:
 
 	void SetTxMsg(CanMsg &m)
 	{
+		//DataCopy((uint8_t*)&dataTx[indexTxStore++], (uint8_t*)&m, sizeof(CanMsg));
 		memcpy((void*)&dataTx[indexTxStore++], (void*)&m, sizeof(CanMsg));
 		indexTxStore &= queueSizeMask;
 	}
