@@ -44,22 +44,22 @@ public:
 		sdo.PushCommand(MiControlCmds::EnableRPDO(1));
 
 		// TPDO 0
-		sdo.PushCommand(MiControlCmds::DisableTPDO(0));
-		sdo.PushCommand(MiControlCmds::SetTransmissionType(0));
-		sdo.PushCommand(MiControlCmds::MapTPDO(0, 0x3762, 0, MiControlCmds::DataSize32)); // Pozycja enkodera (liczba impulsów).
-		sdo.PushCommand(MiControlCmds::EnableTPDO(1, 1));
+		//sdo.PushCommand(MiControlCmds::DisableTPDO(0));
+		//sdo.PushCommand(MiControlCmds::SetTransmissionType(0));
+		//sdo.PushCommand(MiControlCmds::MapTPDO(0, 0x3762, 0, MiControlCmds::DataSize32)); // Pozycja enkodera (liczba impulsów).
+		//sdo.PushCommand(MiControlCmds::EnableTPDO(1, 1));
 
 		// TPDO 1
-		sdo.PushCommand(MiControlCmds::DisableTPDO(1));
-		sdo.PushCommand(MiControlCmds::SetTransmissionType(1));
-		sdo.PushCommand(MiControlCmds::MapTPDO(1, 0x3A04, 1, MiControlCmds::DataSize32)); // Prêdkosc enkodera.
-		sdo.PushCommand(MiControlCmds::EnableTPDO(2, 1));
+		//sdo.PushCommand(MiControlCmds::DisableTPDO(1));
+		//sdo.PushCommand(MiControlCmds::SetTransmissionType(1));
+		//sdo.PushCommand(MiControlCmds::MapTPDO(1, 0x3A04, 1, MiControlCmds::DataSize32)); // Prêdkosc enkodera.
+		//sdo.PushCommand(MiControlCmds::EnableTPDO(2, 1));
 
 		// TPDO 2
-		sdo.PushCommand(MiControlCmds::DisableTPDO(2));
-		sdo.PushCommand(MiControlCmds::SetTransmissionType(2));
-		sdo.PushCommand(MiControlCmds::MapTPDO(2, 0x3262, 0, MiControlCmds::DataSize32)); // Pr¹d silnika.
-		sdo.PushCommand(MiControlCmds::EnableTPDO(3, 1));
+		//sdo.PushCommand(MiControlCmds::DisableTPDO(2));
+		//sdo.PushCommand(MiControlCmds::SetTransmissionType(2));
+		//sdo.PushCommand(MiControlCmds::MapTPDO(2, 0x3262, 0, MiControlCmds::DataSize32)); // Pr¹d silnika.
+		//sdo.PushCommand(MiControlCmds::EnableTPDO(3, 1));
 
 		sdo.StartSequence();
 	}
