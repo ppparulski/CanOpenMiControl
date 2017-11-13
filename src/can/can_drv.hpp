@@ -209,30 +209,25 @@ public:
 
 	void SendStart()
 	{
-		SendTrigger();
-		CAN1->IER |= CAN_IER_TMEIE;
+		if (GetTxMsg())
+				{
+					if (SelectFreeMailbox())
+					{
+						CAN1->sTxMailBox[freeMailbox].TIR = txMsg->index << 21;
+						CAN1->sTxMailBox[freeMailbox].TDLR = txMsg->data[0];
+						CAN1->sTxMailBox[freeMailbox].TDHR = txMsg->data[1];
+						CAN1->sTxMailBox[freeMailbox].TDTR &= ~0xF;
+						CAN1->sTxMailBox[freeMailbox].TDTR |= txMsg->dataNumber;
+						indexTxLoad++;
+						indexTxLoad &= queueSizeMask;
+						SendTrigger();
+					}
+				}
 	}
 
 	void IrqWrite()
 	{
-		if (GetTxMsg())
-		{
-			if (SelectFreeMailbox())
-			{
-				CAN1->sTxMailBox[freeMailbox].TIR = txMsg->index << 21;
-				CAN1->sTxMailBox[freeMailbox].TDLR = txMsg->data[0];
-				CAN1->sTxMailBox[freeMailbox].TDHR = txMsg->data[1];
-				CAN1->sTxMailBox[freeMailbox].TDTR &= ~0xF;
-				CAN1->sTxMailBox[freeMailbox].TDTR |= txMsg->dataNumber;
-				indexTxLoad++;
-				indexTxLoad &= queueSizeMask;
-				SendTrigger();
-			}
-		}
-		else
-		{
-			CAN1->IER &= ~CAN_IER_TMEIE;
-		}
+		//moved to SendStart() as iqrWrite unused
 	}
 
 	void IrqRead()

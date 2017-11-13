@@ -19,7 +19,7 @@ inline SdoCmd ClearError()
 	cmd.subindex = 0x00;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = 0x01;
-	cmd.timeout = 1000;
+	cmd.timeout = 30;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -35,7 +35,7 @@ inline SdoCmd MapRPDO(int object, int index, int subIndex, NumberOfBits numberOf
 	cmd.data[1] = subIndex;
 	cmd.data[2] = index;
 	cmd.data[3] = index >> 8;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -51,7 +51,7 @@ inline SdoCmd MapRPDO(int object, const SdoCmd &c, NumberOfBits numberOfBits)
 	cmd.data[1] = c.subindex;
 	cmd.data[2] = c.index;
 	cmd.data[3] = c.index >> 8;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -64,7 +64,7 @@ inline SdoCmd EnableRPDO(int numberOfObjects)
 	cmd.subindex = 0x00;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = numberOfObjects;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -77,7 +77,7 @@ inline SdoCmd DisableRPDO()
 	cmd.subindex = 0x00;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = 0;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -90,7 +90,23 @@ inline SdoCmd SetTransmissionType(int channel)
 	cmd.subindex = 0x02;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = 0x01;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
+	cmd.trials = -1;
+	return cmd;
+}
+
+inline SdoCmd Map02hTxPDO(int object, int index, int subIndex, int numberOfBits)
+{
+	SdoCmd cmd;
+	cmd.type = 0x23;
+	cmd.index = 0x1A00 + object; // TPDO communication parameter - highest sub-index supported
+	cmd.subindex = 02;
+	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
+	cmd.data[0] = numberOfBits;
+	cmd.data[1] = subIndex;
+	cmd.data[2] = index;
+	cmd.data[3] = index >> 8;
+	cmd.timeout = 20;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -107,7 +123,7 @@ inline SdoCmd MapTPDO(int object, int index, int subIndex, int numberOfBits)
 	cmd.data[1] = subIndex;
 	cmd.data[2] = index;
 	cmd.data[3] = index >> 8;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -124,7 +140,7 @@ inline SdoCmd MapTPDO(int object, const SdoCmd &c, NumberOfBits numberOfBits)
 	cmd.data[1] = c.subindex;
 	cmd.data[2] = c.index;
 	cmd.data[3] = c.index >> 8;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -137,7 +153,7 @@ inline SdoCmd EnableTPDO(uint8_t pdoNum, int numberOfObjects)
 	cmd.subindex = 0;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = numberOfObjects;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -150,7 +166,7 @@ inline SdoCmd DisableTPDO(int numberOfObjects)
 	cmd.subindex = 0;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = 0;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -162,7 +178,7 @@ inline SdoCmd NMTOperational()
 	cmd.index = 0x0001;
 	cmd.subindex = 0x00;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -176,7 +192,7 @@ inline SdoCmd LoadDefault()
 	cmd.subindex = 0x00;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = 0x82;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -189,7 +205,7 @@ inline SdoCmd RestoreParam()
 	cmd.subindex = 0x00;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = 0x81;
-	cmd.timeout = 1000;
+	cmd.timeout = 30;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -201,7 +217,7 @@ inline SdoCmd SetMotorDC()
 	cmd.index = 0x3900;
 	cmd.subindex = 0x00;
 	cmd.data[0] = 0x00;
-	cmd.timeout = 1000;
+	cmd.timeout = 20;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -213,7 +229,7 @@ inline SdoCmd SetMotorBLDC()
 	cmd.index = 0x3900;
 	cmd.subindex = 0x00;
 	cmd.data[0] = 0x01;
-	cmd.timeout = 1000;
+	cmd.timeout = 20;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -226,7 +242,7 @@ inline SdoCmd MotorEnable()
 	cmd.subindex = 0x00;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = 0x01;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -240,7 +256,7 @@ inline SdoCmd MotorDisable()
 	cmd.subindex = 0x00;
 	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
 	cmd.data[0] = 0x00;
-	cmd.timeout = 1000;
+	cmd.timeout = 10;
 	cmd.trials = -1;
 	return cmd;
 }
@@ -256,7 +272,7 @@ inline SdoCmd SetSubvel(int32_t value)
 	cmd.data[1] = value >> 8;
 	cmd.data[2] = value >> 16;
 	cmd.data[3] = value >> 24;
-	cmd.timeout = 100;
+	cmd.timeout = 5;
 	cmd.trials = -1;
 	return cmd;
 }
