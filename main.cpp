@@ -19,7 +19,12 @@
 volatile bool tick;
 
 CanDrv canDrv;
-MotorDrv * motor;
+MotorDrv * motor1;
+MotorDrv * motor2;
+
+int ID_MOTOR_1;
+int ID_MOTOR_2;
+
 
 uint32_t appClk;
 
@@ -75,25 +80,45 @@ void CAN1_RX0_IRQHandler(void)
 		auto id = canDrv.rxMsg->index & CanOpenObjects::DeviceMask;
 		auto cob = canDrv.rxMsg->index & CanOpenObjects::ObjectMask;
 
+
 		switch(cob)
 		{
 			case CanOpenObjects::sdoRx:
-				motor->sdo.received = true;
+				if(id==ID_MOTOR_1)
+					motor1->sdo.received = true;
+				else if (id==ID_MOTOR_2)
+					motor2->sdo.received = true;
 			break;
 
 			case CanOpenObjects::pdo1Rx:
-				motor->ReadPosition(canDrv.rxMsg);
+				if(id==ID_MOTOR_1)
+					motor1->ReadPosition(canDrv.rxMsg);
+				else if (id==ID_MOTOR_2)
+					motor2->ReadPosition(canDrv.rxMsg);
+				//TODO position and velocity
 		    break;
 
 			case CanOpenObjects::pdo2Rx:
-				motor->ReadVelocity(canDrv.rxMsg);
+				//TODO
+				if(id==ID_MOTOR_1){
+					motor1->ReadVelocity(canDrv.rxMsg);
+					bufData[indexTable++] = motor1->measuredVel;
+				} else if(id==ID_MOTOR_2){
+					motor2->ReadVelocity(canDrv.rxMsg);
+					bufData[indexTable++] = motor2->measuredVel;
+				}
 				// for debug purposes
-				bufData[indexTable++] = motor->measuredVel;
+
 				indexTable &= 1024-1;
+				//TODO current and status
 		    break;
 
 			case CanOpenObjects::pdo3Rx:
-				motor->ReadCurrent(canDrv.rxMsg);
+				//TODO
+				if(id==ID_MOTOR_1)
+					motor1->ReadCurrent(canDrv.rxMsg);
+				else if(id==ID_MOTOR_2)
+					motor2->ReadCurrent(canDrv.rxMsg);
 		    break;
 
 			case CanOpenObjects::pdo4Rx:
@@ -114,6 +139,9 @@ int main(void)
 {
 	tick = false;
 
+	ID_MOTOR_1 = 2;
+	ID_MOTOR_2 = 1;
+
 	appClk = 0;
 	SystemInit();
 
@@ -123,13 +151,19 @@ int main(void)
 	}
 
 	Led::Init();
-	canDrv.Init(CanDrv::B1M);
-
-	MotorDrv motorDrv(&canDrv, 1);
-	motor = &motorDrv;
+	canDrv.Init(CanDrv::B1M);	//set CAN baudrate to 1 MBit
 
 
-	motor->Configure();
+	MotorDrv motorDrv1(&canDrv, ID_MOTOR_1);	//assign first motor id
+	motor1 = &motorDrv1;
+	MotorDrv motorDrv2(&canDrv, ID_MOTOR_2);	//assign second motor id
+	motor2 = &motorDrv2;
+
+
+
+	motor1->Configure();
+	motor2->Configure();
+
 	canDrv.SendStart();
 
 	__enable_irq();
@@ -139,33 +173,70 @@ int main(void)
 	{
     	if (tick)
     	{
-
     		float time = (float) appClk * 0.001;
     		tick = false;
 
-    		switch (motor->state)
+
+    		///***   Motor 1   ***///
+
+    		switch (motor1->state)
     		{
     			case MotorDrv::Idle:
-    				if (motor->sdo.StackWriteUpdate())
+    				if (motor1->sdo.StackWriteUpdate())
     					canDrv.SendStart();
-    				if (motor->sdo.completed)
-    					motor->state = MotorDrv::Configured;
+    				if (motor1->sdo.completed)
+    					motor1->state = MotorDrv::Configured;
     		    break;
 
     			case MotorDrv::Configured:
-    				motor->nmt.GoToOperational();
+    				motor1->nmt.GoToOperational();
     				canDrv.SendStart();
-    				motor->state = MotorDrv::Operational;
+    				motor1->state = MotorDrv::Waiting;
+    			break;
+
+    			case MotorDrv::Waiting:
+    				//if(motor1->state == MotorDrv::Operational && motor2->state == MotorDrv::Operational)
+    					motor1->state = MotorDrv::Operational;
     			break;
 
     			case MotorDrv::Operational:
-    				motor->desiredVel = 100.0f*sinf(5*time);
-
-    				motor->SetVelocity();
-    				SendSynchObj(&canDrv);
-    				canDrv.SendStart();
-    			break;
+    					motor1->desiredVel = 100.0f*sinf(5*time);
+	    				motor1->SetVelocity();
+	    				SendSynchObj(&canDrv);
+	    				canDrv.SendStart();
+    				    			break;
     		}
+
+
+    		///***   Motor 2   ***///
+
+    		switch (motor2->state)
+			{
+				case MotorDrv::Idle:
+					if (motor2->sdo.StackWriteUpdate())
+						canDrv.SendStart();
+					if (motor2->sdo.completed)
+						motor2->state = MotorDrv::Configured;
+				break;
+
+				case MotorDrv::Configured:
+					motor2->nmt.GoToOperational();
+					canDrv.SendStart();
+					motor2->state = MotorDrv::Waiting;
+				break;
+
+				case MotorDrv::Waiting:
+    				//if(motor1->state == MotorDrv::Operational && motor2->state == MotorDrv::Operational)
+    					motor2->state = MotorDrv::Operational;
+				break;
+
+				case MotorDrv::Operational:
+						motor2->desiredVel = 100.0f*sinf(5*time);
+						motor2->SetVelocity();
+						SendSynchObj(&canDrv);
+						canDrv.SendStart();
+				break;
+			}
     	}
 	}
     return 0;

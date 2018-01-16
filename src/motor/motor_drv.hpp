@@ -10,7 +10,7 @@ public:
 	Pdo pdo;
 	Nmt nmt;
 
-	enum State {Idle = 0, Configured = 1, Operational = 2};
+	enum State {Idle = 0, Configured = 1, Operational = 2, Waiting = 3};
 
 	State state;
 
