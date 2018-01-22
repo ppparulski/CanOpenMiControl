@@ -139,7 +139,7 @@ int main(void)
 {
 	tick = false;
 
-	ID_MOTOR_1 = 2;
+	ID_MOTOR_1 = 3;
 	ID_MOTOR_2 = 1;
 
 	appClk = 0;
@@ -195,7 +195,8 @@ int main(void)
     			break;
 
     			case MotorDrv::Waiting:
-    				//if(motor1->state == MotorDrv::Operational && motor2->state == MotorDrv::Operational)
+    				if((motor1->state == MotorDrv::Waiting || motor1->state == MotorDrv::Operational)
+    						&& (motor2->state == MotorDrv::Waiting || motor2->state == MotorDrv::Operational))
     					motor1->state = MotorDrv::Operational;
     			break;
 
@@ -226,7 +227,8 @@ int main(void)
 				break;
 
 				case MotorDrv::Waiting:
-    				//if(motor1->state == MotorDrv::Operational && motor2->state == MotorDrv::Operational)
+    				if((motor1->state == MotorDrv::Waiting || motor1->state == MotorDrv::Operational)
+    						&& (motor2->state == MotorDrv::Waiting || motor2->state == MotorDrv::Operational))
     					motor2->state = MotorDrv::Operational;
 				break;
 
