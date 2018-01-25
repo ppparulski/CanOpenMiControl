@@ -39,8 +39,10 @@ extern "C"
 
 volatile uint32_t counter1 = 0, cnt2 = 0;
 
-volatile uint32_t indexTable = 0;
-volatile int32_t bufData[1024];
+volatile uint32_t indexTable_1 = 0;
+volatile uint32_t indexTable_2 = 0;
+volatile int32_t bufData_1[1024];
+volatile int32_t bufData_2[1024];
 
 
 void GeneralHardwareInit()
@@ -102,14 +104,13 @@ void CAN1_RX0_IRQHandler(void)
 				//TODO
 				if(id==ID_MOTOR_1){
 					motor1->ReadVelocity(canDrv.rxMsg);
-					bufData[indexTable++] = motor1->measuredVel;
+					bufData_1[indexTable_1++] = motor1->measuredVel;
+					indexTable_1 &= 1024-1;
 				} else if(id==ID_MOTOR_2){
 					motor2->ReadVelocity(canDrv.rxMsg);
-					bufData[indexTable++] = motor2->measuredVel;
+					bufData_2[indexTable_2++] = motor2->measuredVel;
+					indexTable_2 &= 1024-1;
 				}
-				// for debug purposes
-
-				indexTable &= 1024-1;
 				//TODO current and status
 		    break;
 
