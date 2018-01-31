@@ -4,7 +4,7 @@
     <Device manufacturerId="9" manufacturerName="ST" chipId="344" chipName="STM32F407VG" boardId="" boardName=""/>
     <BuildOption>
       <Compile>
-        <Option name="OptimizationLevel" value="3"/>
+        <Option name="OptimizationLevel" value="0"/>
         <Option name="UseFPU" value="0"/>
         <Option name="UserEditCompiler" value="-std=c++11 "/>
         <Option name="SupportCPlusplus" value="1"/>
@@ -12,9 +12,9 @@
         <Includepaths>
           <Includepath path="."/>
           <Includepath path="src/can"/>
-          <Includepath path="src/motor"/>
           <Includepath path="src/cpu"/>
           <Includepath path="src/tools"/>
+          <Includepath path="src/motor"/>
         </Includepaths>
         <DefinedSymbols>
           <Define name="STM32F407VG"/>
@@ -40,7 +40,7 @@
           <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
           <Memory name="IRAM2" type="ReadWrite" size="0x00010000" startValue="0x10000000"/>
         </MemoryAreas>
-        <LocateLinkFile path="../../../../tools/arm/coocox/coide/configuration/programdata/canopen/arm-gcc-link.ld" type="0"/>
+        <LocateLinkFile path="../../../../../coocox/coide/configuration/programdata/canopen/arm-gcc-link.ld" type="0"/>
       </Link>
       <Output>
         <Option name="OutputFileType" value="0"/>
@@ -72,7 +72,7 @@
       <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
       <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F4xx_1024.elf"/>
-      <Option name="org.coocox.codebugger.gdbjtag.coredebugInRamInitCommands" value="cd E:/prywatne/projekty/can_open/canopenstm32/CanOpen/Debug/bin
+      <Option name="org.coocox.codebugger.gdbjtag.coredebugInRamInitCommands" value="cd C:/dane/studia/sem9/PracaProlemowa/CanOpenMiControl/CanOpen/Debug/bin
 restore CanOpen.elf
 set {unsigned int*}0xE000ED08 = 0x20000000
 set $sp = {unsigned int*}0x20000000

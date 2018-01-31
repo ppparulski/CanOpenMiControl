@@ -18,7 +18,7 @@ public:
 		CanMsg canMsg;
 
 		canMsg.index = 0;
-		canMsg.data[0] = 0x0100 | node;
+		canMsg.data[0] = 0x0001 | node<<8;
 		canMsg.data[1] = 0;
 		canMsg.dataNumber = 2;
 

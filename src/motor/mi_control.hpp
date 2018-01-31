@@ -95,6 +95,22 @@ inline SdoCmd SetTransmissionType(int channel)
 	return cmd;
 }
 
+inline SdoCmd Map02hTxPDO(int object, int index, int subIndex, int numberOfBits)
+{
+	SdoCmd cmd;
+	cmd.type = 0x23;
+	cmd.index = 0x1A00 + object; // TPDO communication parameter - highest sub-index supported
+	cmd.subindex = 02;
+	cmd.data[0] = cmd.data[1] = cmd.data[2] = cmd.data[3] = 0;
+	cmd.data[0] = numberOfBits;
+	cmd.data[1] = subIndex;
+	cmd.data[2] = index;
+	cmd.data[3] = index >> 8;
+	cmd.timeout = 20;
+	cmd.trials = -1;
+	return cmd;
+}
+
 // numberOfBits: Only 8, 16 and 32 available.
 inline SdoCmd MapTPDO(int object, int index, int subIndex, int numberOfBits)
 {
