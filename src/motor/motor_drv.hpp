@@ -18,6 +18,7 @@ public:
 	int32_t measuredVel;
 	int32_t measuredPos;
 	int32_t measuredCurrent;
+	int32_t actualStatus;
 
 
 	MotorDrv(CanDrv * canDrv, uint8_t id) : sdo(canDrv, id), pdo(canDrv, id), nmt(canDrv, id)
@@ -56,7 +57,7 @@ public:
 		sdo.PushCommand(MiControlCmds::DisableTPDO(1));
 		sdo.PushCommand(MiControlCmds::SetTransmissionType(1));
 		sdo.PushCommand(MiControlCmds::Map02hTxPDO(0, 0x3262, 0, MiControlCmds::DataSize32)); //current
-		sdo.PushCommand(MiControlCmds::Map02hTxPDO(1, 0x3002, 1, MiControlCmds::DataSize32)); //
+		sdo.PushCommand(MiControlCmds::Map02hTxPDO(1, 0x3002, 1, MiControlCmds::DataSize32)); //status
 		sdo.PushCommand(MiControlCmds::EnableTPDO(2, 2));
 
 
@@ -96,12 +97,17 @@ public:
 
 	float ReadVelocity(volatile CanMsg * msg)
 	{
-		measuredVel = (int32_t) msg->data[0];
+		measuredVel = (int32_t) msg->data[1];
 	}
 
 	float ReadCurrent(volatile CanMsg * msg)
 	{
 		measuredCurrent = (int32_t) msg->data[0];
+	}
+
+	float ReadStatus(volatile CanMsg * msg)
+	{
+		measuredCurrent = (int32_t) msg->data[1];
 	}
 
 

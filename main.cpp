@@ -93,33 +93,34 @@ void CAN1_RX0_IRQHandler(void)
 			break;
 
 			case CanOpenObjects::pdo1Rx:
-				if(id==ID_MOTOR_1)
-					motor1->ReadPosition(canDrv.rxMsg);
-				else if (id==ID_MOTOR_2)
-					motor2->ReadPosition(canDrv.rxMsg);
-				//TODO position and velocity
+				if(id==ID_MOTOR_1){
+
+					motor1->ReadPosition(canDrv.rxMsg);	//read motor1 position
+					motor1->ReadVelocity(canDrv.rxMsg);	//read motor1 velocity
+
+					//Store data
+					bufData_1[indexTable_1++] = motor1->measuredPos;
+					indexTable_1 &= 1024-1;
+					bufData_2[indexTable_2++] = motor1->measuredVel;
+					indexTable_2 &= 1024-1;
+
+				} else if (id==ID_MOTOR_2){
+					motor2->ReadPosition(canDrv.rxMsg);	//read motor2 position
+					motor2->ReadVelocity(canDrv.rxMsg);	//read motor2 velocity
+				}
 		    break;
 
 			case CanOpenObjects::pdo2Rx:
-				//TODO
 				if(id==ID_MOTOR_1){
-					motor1->ReadVelocity(canDrv.rxMsg);
-					bufData_1[indexTable_1++] = motor1->measuredVel;
-					indexTable_1 &= 1024-1;
+					motor1->ReadCurrent(canDrv.rxMsg);	//read motor1 current
+					motor1->ReadStatus(canDrv.rxMsg);	//read motor1 status
 				} else if(id==ID_MOTOR_2){
-					motor2->ReadVelocity(canDrv.rxMsg);
-					bufData_2[indexTable_2++] = motor2->measuredVel;
-					indexTable_2 &= 1024-1;
+					motor2->ReadCurrent(canDrv.rxMsg);	//read motor2 current
+					motor2->ReadStatus(canDrv.rxMsg);	//read motor2 status
 				}
-				//TODO current and status
 		    break;
 
 			case CanOpenObjects::pdo3Rx:
-				//TODO
-				if(id==ID_MOTOR_1)
-					motor1->ReadCurrent(canDrv.rxMsg);
-				else if(id==ID_MOTOR_2)
-					motor2->ReadCurrent(canDrv.rxMsg);
 		    break;
 
 			case CanOpenObjects::pdo4Rx:
