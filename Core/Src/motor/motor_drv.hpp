@@ -41,13 +41,13 @@ public:
 		sdo.PushCommand(MiControlCmds::MotorEnable());
 
 		sdo.PushCommand(MiControlCmds::DisableRPDO());
-		sdo.PushCommand(MiControlCmds::MapRPDO(1, MiControlCmds::SetSubvel(0), MiControlCmds::DataSize32)); // Alternatywna sk³adnia: MapRPDO(1, 0x3500, 0, 32)
+		sdo.PushCommand(MiControlCmds::MapRPDO(1, MiControlCmds::SetSubvel(0), MiControlCmds::DataSize32)); // Alternatywna skï¿½adnia: MapRPDO(1, 0x3500, 0, 32)
 		sdo.PushCommand(MiControlCmds::EnableRPDO(1));
 
 
 
 		//Map position and velocity to PDO 181
-		sdo.PushCommand(MiControlCmds::DisableTPDO(0));
+/*		sdo.PushCommand(MiControlCmds::DisableTPDO(0));
 		sdo.PushCommand(MiControlCmds::SetTransmissionType(0));
 		sdo.PushCommand(MiControlCmds::Map02hTxPDO(0, 0x3762, 0, MiControlCmds::DataSize32)); //position
 		sdo.PushCommand(MiControlCmds::Map02hTxPDO(1, 0x3A04, 1, MiControlCmds::DataSize32)); //velocity
@@ -58,26 +58,26 @@ public:
 		sdo.PushCommand(MiControlCmds::SetTransmissionType(1));
 		sdo.PushCommand(MiControlCmds::Map02hTxPDO(0, 0x3262, 0, MiControlCmds::DataSize32)); //current
 		sdo.PushCommand(MiControlCmds::Map02hTxPDO(1, 0x3002, 1, MiControlCmds::DataSize32)); //status
-		sdo.PushCommand(MiControlCmds::EnableTPDO(2, 2));
+		sdo.PushCommand(MiControlCmds::EnableTPDO(2, 2));*/
 
 
 
 		// TPDO 0  //  181
 		//sdo.PushCommand(MiControlCmds::DisableTPDO(0));
 		//sdo.PushCommand(MiControlCmds::SetTransmissionType(0));
-		//sdo.PushCommand(MiControlCmds::MapTPDO(0, 0x3762, 0, MiControlCmds::DataSize32)); // Pozycja enkodera (liczba impulsów).
+		//sdo.PushCommand(MiControlCmds::MapTPDO(0, 0x3762, 0, MiControlCmds::DataSize32)); // Pozycja enkodera (liczba impulsï¿½w).
 		//sdo.PushCommand(MiControlCmds::EnableTPDO(1, 1));
 
 		// TPDO 1  //  281
 		//sdo.PushCommand(MiControlCmds::DisableTPDO(1));
 		//sdo.PushCommand(MiControlCmds::SetTransmissionType(1));
-		//sdo.PushCommand(MiControlCmds::MapTPDO(1, 0x3A04, 1, MiControlCmds::DataSize32)); // Prêdkosc enkodera.
+		//sdo.PushCommand(MiControlCmds::MapTPDO(1, 0x3A04, 1, MiControlCmds::DataSize32)); // Prï¿½dkosc enkodera.
 		//sdo.PushCommand(MiControlCmds::EnableTPDO(2, 1));
 
 		// TPDO 2  //  381
 		//sdo.PushCommand(MiControlCmds::DisableTPDO(2));
 		//sdo.PushCommand(MiControlCmds::SetTransmissionType(2));
-		//sdo.PushCommand(MiControlCmds::MapTPDO(2, 0x3262, 0, MiControlCmds::DataSize32)); // Pr¹d silnika.
+		//sdo.PushCommand(MiControlCmds::MapTPDO(2, 0x3262, 0, MiControlCmds::DataSize32)); // Prï¿½d silnika.
 		//sdo.PushCommand(MiControlCmds::EnableTPDO(3, 1));
 
 		sdo.StartSequence();
@@ -92,7 +92,7 @@ public:
 
 	float ReadPosition(volatile CanMsg * msg)
 	{
-		measuredPos = (int32_t) msg->data[0];
+		measuredPos = (int32_t) (msg->data[0] >> 16);
 	}
 
 	float ReadVelocity(volatile CanMsg * msg)
@@ -102,12 +102,16 @@ public:
 
 	float ReadCurrent(volatile CanMsg * msg)
 	{
-		measuredCurrent = (int32_t) msg->data[0];
+		auto current = (int16_t) (msg->data[0] & 0xFFFF);
+		//current >>= 16;
+
+		measuredCurrent = current;
+
 	}
 
 	float ReadStatus(volatile CanMsg * msg)
 	{
-		measuredCurrent = (int32_t) msg->data[1];
+		//measuredCurrent = (int32_t) msg->data[1];
 	}
 
 
