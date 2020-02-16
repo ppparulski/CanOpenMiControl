@@ -23,7 +23,7 @@ struct CanOpenObjects
 
 };
 
-inline void SendSynchObj(CanDrv * drv)
+inline void SetSynchObj(CanDrv * drv)
 {
 	CanMsg canMsg;
 

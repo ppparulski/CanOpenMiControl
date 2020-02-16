@@ -10,6 +10,8 @@ public:
 	Pdo pdo;
 	Nmt nmt;
 
+	uint16_t id;
+
 	enum State {Idle = 0, Configured = 1, Operational = 2, Waiting = 3};
 
 	State state;
@@ -23,6 +25,7 @@ public:
 
 	MotorDrv(CanDrv * canDrv, uint8_t id) : sdo(canDrv, id), pdo(canDrv, id), nmt(canDrv, id)
 	{
+		this->id = id;
 		state = Idle;
 		desiredVel = 0;
 		SetPdoCmds();
@@ -40,14 +43,14 @@ public:
 		sdo.PushCommand(MiControlCmds::RestoreParam());
 		sdo.PushCommand(MiControlCmds::MotorEnable());
 
-		sdo.PushCommand(MiControlCmds::DisableRPDO());
+		/*sdo.PushCommand(MiControlCmds::DisableRPDO());
 		sdo.PushCommand(MiControlCmds::MapRPDO(1, MiControlCmds::SetSubvel(0), MiControlCmds::DataSize32)); // Alternatywna sk�adnia: MapRPDO(1, 0x3500, 0, 32)
 		sdo.PushCommand(MiControlCmds::EnableRPDO(1));
 
 
 
 		//Map position and velocity to PDO 181
-/*		sdo.PushCommand(MiControlCmds::DisableTPDO(0));
+		sdo.PushCommand(MiControlCmds::DisableTPDO(0));
 		sdo.PushCommand(MiControlCmds::SetTransmissionType(0));
 		sdo.PushCommand(MiControlCmds::Map02hTxPDO(0, 0x3762, 0, MiControlCmds::DataSize32)); //position
 		sdo.PushCommand(MiControlCmds::Map02hTxPDO(1, 0x3A04, 1, MiControlCmds::DataSize32)); //velocity
@@ -92,7 +95,7 @@ public:
 
 	float ReadPosition(volatile CanMsg * msg)
 	{
-		measuredPos = (int32_t) (msg->data[0] >> 16);
+		measuredPos = (int32_t) msg->data[0];
 	}
 
 	float ReadVelocity(volatile CanMsg * msg)
@@ -102,16 +105,12 @@ public:
 
 	float ReadCurrent(volatile CanMsg * msg)
 	{
-		auto current = (int16_t) (msg->data[0] & 0xFFFF);
-		//current >>= 16;
-
-		measuredCurrent = current;
-
+		measuredCurrent = (int32_t) msg->data[0];
 	}
 
 	float ReadStatus(volatile CanMsg * msg)
 	{
-		//measuredCurrent = (int32_t) msg->data[1];
+		measuredCurrent = (int32_t) msg->data[1];
 	}
 
 

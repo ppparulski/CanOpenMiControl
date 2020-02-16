@@ -29,7 +29,8 @@
 #include "motor\mi_control.hpp"
 #include "motor\motor_drv.hpp"
 #include "cpu\led_interface.h"
-#include "math.h"
+
+#include "canComModule.hpp"
 
 /* USER CODE END Includes */
 
@@ -59,13 +60,10 @@ extern "C"
 /* USER CODE BEGIN PV */
 volatile bool tick;
 
+const uint8_t motorNumbers = 2;
+
 CanDrv canDrv;
-MotorDrv * motor1;
-//MotorDrv * motor2;
-
-uint16_t ID_MOTOR_1;
-uint16_t ID_MOTOR_2;
-
+MotorDrv * motor[motorNumbers];
 
 uint32_t appClk;
 
@@ -73,8 +71,8 @@ volatile uint32_t counter1 = 0, cnt2 = 0;
 
 volatile uint32_t indexTable_1 = 0;
 volatile uint32_t indexTable_2 = 0;
-volatile int32_t bufData_1[8192];
-volatile int32_t bufData_2[8192];
+volatile int32_t bufData_1[1024];
+volatile int32_t bufData_2[1024];
 
 /* USER CODE END PV */
 
@@ -109,21 +107,19 @@ int main(void)
   /* USER CODE BEGIN Init */
   tick = false;
 
-  ID_MOTOR_1 = 2;
- // ID_MOTOR_2 = 1;
-
   appClk = 0;
 
   Led::Init();
-  canDrv.Init(CanDrv::B1M);	//set CAN baudrate to 1 MBit
+  canDrv.Init(CanDrv::B1M);
 
-  MotorDrv motorDrv1(&canDrv, ID_MOTOR_1);	//assign first motor id
-  motor1 = &motorDrv1;
-//  MotorDrv motorDrv2(&canDrv, ID_MOTOR_2);	//assign second motor id
-//  motor2 = &motorDrv2;
+  MotorDrv motorDrv1(&canDrv, 1);
+  MotorDrv motorDrv2(&canDrv, 2);
 
-  motor1->Configure();
-//  motor2->Configure();
+  motor[0] = &motorDrv1;
+  motor[1] = &motorDrv2;
+
+  for (auto i = 0; i < motorNumbers; i++)
+	  motor[i]->Configure();
 
   canDrv.SendStart();
 
@@ -146,75 +142,33 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  bool controlActive = false;
   while (1)
   {
-	  if (tick)
-	  {
-		  float time = (float) appClk * 0.001;
-	      tick = false;
+     if (tick)
+	 {
+	    float time = (float) appClk * 0.001;
+	    tick = false;
 
-     	  ///***   Motor 1   ***///
-	      switch (motor1->state)
-	      {
-	      	  case MotorDrv::Idle:
-	    		if (motor1->sdo.StackWriteUpdate())
-	    		  canDrv.SendStart();
-	    		if (motor1->sdo.completed)
-	    		  motor1->state = MotorDrv::Configured;
-	    	  break;
+	    if (controlActive)
+	    {
+	    	//compute the algorithm
 
-	    	  case MotorDrv::Configured:
-	    	    motor1->nmt.GoToOperational();
-	    		canDrv.SendStart();
-	    		motor1->state = MotorDrv::Waiting;
-	    	  break;
+	    	//store data
+	   	    /* bufData_1[indexTable_1++] = mot->measuredPos;
+	   	     * bufData_2[indexTable_2++] = mot->measuredVel;
+	   	       indexTable_1 &= 1024-1;
+	   	 	   indexTable_2 &= 1024-1;*/
+	    }
 
-	    	  case MotorDrv::Waiting:
-	    		if((motor1->state == MotorDrv::Waiting || motor1->state == MotorDrv::Operational))
-	    						//&& (motor2->state == MotorDrv::Waiting || motor2->state == MotorDrv::Operational))
-	    		motor1->state = MotorDrv::Operational;
-	    	  break;
+	    if (motorCanSendData(motor, motorNumbers))
+	    {
+	    	SetSynchObj(&canDrv);
+	    	controlActive = true;
+	    }
+	    canDrv.SendStart();
+	 }
 
-	    	  case MotorDrv::Operational:
-	    	    motor1->desiredVel = -1000.0f; //sin(1.0*time);
-		    	motor1->SetVelocity();
-		    	SendSynchObj(&canDrv);
-		    	canDrv.SendStart();
-	    	  break;
-	       }
-
-
-	    		///***   Motor 2   ***///
-
-/*	    		switch (motor2->state)
-				{
-					case MotorDrv::Idle:
-						if (motor2->sdo.StackWriteUpdate())
-							canDrv.SendStart();
-						if (motor2->sdo.completed)
-							motor2->state = MotorDrv::Configured;
-					break;
-
-					case MotorDrv::Configured:
-						motor2->nmt.GoToOperational();
-						canDrv.SendStart();
-						motor2->state = MotorDrv::Waiting;
-					break;
-
-					case MotorDrv::Waiting:
-	    				if((motor1->state == MotorDrv::Waiting || motor1->state == MotorDrv::Operational)
-	    						&& (motor2->state == MotorDrv::Waiting || motor2->state == MotorDrv::Operational))
-	    					motor2->state = MotorDrv::Operational;
-					break;
-
-					case MotorDrv::Operational:
-							motor2->desiredVel = 100.0f; //*sinf(5*time);
-							motor2->SetVelocity();
-							SendSynchObj(&canDrv);
-							canDrv.SendStart();
-					break;
-				}*/
-	    	}
     /* USER CODE END WHILE */
     /* USER CODE BEGIN 3 */
   }
@@ -278,11 +232,6 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void CAN1_TX_IRQHandler(void)
-{
-	canDrv.IrqWrite();
-}
-
 void GeneralHardwareInit()
 {
 	//**************** port A
@@ -298,12 +247,16 @@ void SysTick_Handler(void)
 {
 	appClk++;
 	tick = true;
-	if (++counter1==1)
+	if (++counter1==500)
 	{
-
 		counter1 = 0;
 		Led::Yellow() ^= 1;
 	}
+}
+
+void CAN1_TX_IRQHandler(void)
+{
+	canDrv.IrqWrite();
 }
 
 void CAN1_RX0_IRQHandler(void)
@@ -312,59 +265,20 @@ void CAN1_RX0_IRQHandler(void)
 
 	while (canDrv.GetRxMsg())
 	{
-		auto id = canDrv.rxMsg->index & CanOpenObjects::DeviceMask;
-		auto cob = canDrv.rxMsg->index & CanOpenObjects::ObjectMask;
+	   auto msg = canDrv.rxMsg;
+	   auto id = msg->index & CanOpenObjects::DeviceMask;
+	   auto cob = msg->index & CanOpenObjects::ObjectMask;
 
-		switch(cob)
-		{
-			case CanOpenObjects::sdoRx:
-				if(id==ID_MOTOR_1)
-					motor1->sdo.received = true;
-				else if (id==ID_MOTOR_2) {};
-					//motor2->sdo.received = true;
-			break;
+	   MotorDrv * mot = NULL;
+	   for(auto m = 0; m < motorNumbers; m++)
+	      if (motor[m]->id == id)
+		     mot = motor[m];
 
-			case CanOpenObjects::pdo1Rx:
-				if(id==ID_MOTOR_1)
-				{
-					motor1->ReadPosition(canDrv.rxMsg);	//read motor1 position
-					motor1->ReadVelocity(canDrv.rxMsg);	//read motor1 velocity
+	   // avoid if it does not fits
+	   if (!mot)
+          return;
 
-					//Store data
-					bufData_1[indexTable_1++] = motor1->measuredPos;
-					indexTable_1 &= 8192-1;
-
-				} else if (id==ID_MOTOR_2){
-					/*motor2->ReadPosition(canDrv.rxMsg);	//read motor2 position
-					motor2->ReadVelocity(canDrv.rxMsg);	//read motor2 velocity*/
-				}
-		    break;
-
-			case CanOpenObjects::pdo2Rx:
-				if(id==ID_MOTOR_1){
-					motor1->ReadCurrent(canDrv.rxMsg);	//read motor1 current
-					motor1->ReadStatus(canDrv.rxMsg);	//read motor1 status
-					bufData_2[indexTable_2++] = motor1->measuredCurrent;
-					indexTable_2 &= 8192-1;
-
-
-				} else if(id==ID_MOTOR_2){
-					/*motor2->ReadCurrent(canDrv.rxMsg);	//read motor2 current
-					motor2->ReadStatus(canDrv.rxMsg);	//read motor2 status*/
-				}
-		    break;
-
-			case CanOpenObjects::pdo3Rx:
-		    break;
-
-			case CanOpenObjects::pdo4Rx:
-		    break;
-
-			default:
-			break;
-
-		}
-
+	   motorReadData(mot, msg, cob);
 	}
 }
 

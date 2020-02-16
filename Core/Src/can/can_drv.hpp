@@ -121,6 +121,8 @@ public:
 		CAN1->MCR &= ~CAN_MCR_INRQ;
 		while (CAN1->MSR & CAN_MSR_INAK) {};
 
+		CAN1->IER |= CAN_IER_TMEIE;
+
 		NVIC_EnableIRQ(CAN1_TX_IRQn);
 		NVIC_EnableIRQ(CAN1_RX0_IRQn);
 
@@ -206,27 +208,43 @@ public:
 			return false;
 	}
 
-	void SendStart()
+	bool SendStart()
 	{
 		if (GetTxMsg())
-				{
-					if (SelectFreeMailbox())
-					{
-						CAN1->sTxMailBox[freeMailbox].TIR = txMsg->index << 21;
-						CAN1->sTxMailBox[freeMailbox].TDLR = txMsg->data[0];
-						CAN1->sTxMailBox[freeMailbox].TDHR = txMsg->data[1];
-						CAN1->sTxMailBox[freeMailbox].TDTR &= ~0xF;
-						CAN1->sTxMailBox[freeMailbox].TDTR |= txMsg->dataNumber;
-						indexTxLoad++;
-						indexTxLoad &= queueSizeMask;
-						SendTrigger();
-					}
-				}
+		{
+			if (SelectFreeMailbox())
+			{
+				CAN1->sTxMailBox[freeMailbox].TIR = txMsg->index << 21;
+				CAN1->sTxMailBox[freeMailbox].TDLR = txMsg->data[0];
+				CAN1->sTxMailBox[freeMailbox].TDHR = txMsg->data[1];
+				CAN1->sTxMailBox[freeMailbox].TDTR &= ~0xF;
+				CAN1->sTxMailBox[freeMailbox].TDTR |= txMsg->dataNumber;
+				indexTxLoad++;
+				indexTxLoad &= queueSizeMask;
+				SendTrigger();
+			}
+			return true;
+		}
+		return false;
 	}
 
 	void IrqWrite()
 	{
-		//moved to SendStart() as iqrWrite unused
+		if (!SendStart())
+		{
+			if (CAN1->TSR & CAN_TSR_RQCP0)
+			{
+				CAN1->TSR |= CAN_TSR_RQCP0;
+			}
+			if (CAN1->TSR & CAN_TSR_RQCP1)
+			{
+				CAN1->TSR |= CAN_TSR_RQCP1;
+			}
+			if (CAN1->TSR & CAN_TSR_RQCP2)
+			{
+				CAN1->TSR |= CAN_TSR_RQCP2;
+			}
+		}
 	}
 
 	void IrqRead()
