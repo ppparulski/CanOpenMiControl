@@ -11,9 +11,9 @@ inline bool motorCanSendData(MotorDrv * motor[], uint8_t motorNumbers)
       switch (motor[m]->state)
 	  {
 	     case MotorDrv::Idle:
-	        if (motor[m]->sdo.StackWriteUpdate())
-	    	   if (motor[m]->sdo.completed)
-	    	      motor[m]->state = MotorDrv::Configured;
+	        motor[m]->sdo.StackWriteUpdate();
+	    	if (motor[m]->sdo.completed)
+	    	    motor[m]->state = MotorDrv::Configured;
 	     break;
 
 	     case MotorDrv::Configured:
@@ -33,7 +33,7 @@ inline bool motorCanSendData(MotorDrv * motor[], uint8_t motorNumbers)
 	     break;
 
 	     case MotorDrv::Operational:
-	        motor[m]->SetVelocity();
+	        motor[m]->SetCurrent();
 	        operational = true;
 		 break;
 	  }
@@ -52,12 +52,10 @@ inline void motorReadData(MotorDrv * mot, volatile CanMsg * msg, uint16_t cob)
 
 	  case CanOpenObjects::pdo1Rx:
 	     mot->ReadPosition(msg);
-		 mot->ReadVelocity(msg);
 	  break;
 
 	  case CanOpenObjects::pdo2Rx:
 		 mot->ReadCurrent(msg);
-		 mot->ReadStatus(msg);
       break;
 
 	  case CanOpenObjects::pdo3Rx:

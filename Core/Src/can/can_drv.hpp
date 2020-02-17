@@ -12,6 +12,7 @@ struct CanMsg
 };
 
 
+
 class CanDrv
 {
 	static const uint8_t queueSize = 32;

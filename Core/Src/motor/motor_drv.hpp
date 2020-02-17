@@ -2,8 +2,24 @@
 #include "mi_control.hpp"
 #include "string.h"
 
+
+
 class MotorDrv
 {
+	typedef struct
+	{
+		uint32_t index;
+		int32_t pos;
+		int32_t vel;
+	} __attribute__ ((packed)) ReceiveData1;
+
+	typedef struct
+	{
+		uint32_t index;
+		int16_t current;
+		uint16_t status;
+		uint32_t res;
+	} __attribute__ ((packed)) ReceiveData2;
 
 public:
 	Sdo sdo;
@@ -17,6 +33,8 @@ public:
 	State state;
 
 	float desiredVel;
+	float desiredCurrent;
+
 	int32_t measuredVel;
 	int32_t measuredPos;
 	int32_t measuredCurrent;
@@ -93,25 +111,28 @@ public:
 		pdo.Send(Pdo::Pdo1);
 	}
 
-	float ReadPosition(volatile CanMsg * msg)
+	void SetCurrent()
 	{
-		measuredPos = (int32_t) msg->data[0];
+		pdo.cmdTx[Pdo::Pdo1].data0 = (int32_t) desiredCurrent;
+		pdo.Send(Pdo::Pdo1);
 	}
 
-	float ReadVelocity(volatile CanMsg * msg)
+	float ReadPosition(volatile CanMsg * msg)
 	{
-		measuredVel = (int32_t) msg->data[1];
+		auto data = (ReceiveData1 *) msg;
+		measuredPos = data->pos;
+		measuredVel = data->vel;
 	}
 
 	float ReadCurrent(volatile CanMsg * msg)
 	{
-		measuredCurrent = (int32_t) msg->data[0];
+		auto data = (ReceiveData2 *) msg;
+		measuredCurrent = data->current;
 	}
 
 	float ReadStatus(volatile CanMsg * msg)
 	{
-		measuredCurrent = (int32_t) msg->data[1];
+		//measuredCurrent = (int32_t) msg->data[1];
 	}
-
 
 };

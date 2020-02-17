@@ -31,6 +31,7 @@
 #include "cpu\led_interface.h"
 
 #include "canComModule.hpp"
+#include "math.h"
 
 /* USER CODE END Includes */
 
@@ -60,7 +61,7 @@ extern "C"
 /* USER CODE BEGIN PV */
 volatile bool tick;
 
-const uint8_t motorNumbers = 2;
+const uint8_t motorNumbers = 1;
 
 CanDrv canDrv;
 MotorDrv * motor[motorNumbers];
@@ -71,8 +72,8 @@ volatile uint32_t counter1 = 0, cnt2 = 0;
 
 volatile uint32_t indexTable_1 = 0;
 volatile uint32_t indexTable_2 = 0;
-volatile int32_t bufData_1[1024];
-volatile int32_t bufData_2[1024];
+volatile int32_t bufData_1[8192];
+volatile int32_t bufData_2[8192];
 
 /* USER CODE END PV */
 
@@ -92,6 +93,8 @@ static void MX_GPIO_Init(void);
   * @brief  The application entry point.
   * @retval int
   */
+
+const float tauMax = 400;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -112,11 +115,11 @@ int main(void)
   Led::Init();
   canDrv.Init(CanDrv::B1M);
 
-  MotorDrv motorDrv1(&canDrv, 1);
-  MotorDrv motorDrv2(&canDrv, 2);
+  MotorDrv motorDrv1(&canDrv, 2);
+  //MotorDrv motorDrv2(&canDrv, 2);
 
   motor[0] = &motorDrv1;
-  motor[1] = &motorDrv2;
+  //motor[1] = &motorDrv2;
 
   for (auto i = 0; i < motorNumbers; i++)
 	  motor[i]->Configure();
@@ -143,6 +146,8 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   bool controlActive = false;
+  float oldPos = 0;
+
   while (1)
   {
      if (tick)
@@ -153,12 +158,21 @@ int main(void)
 	    if (controlActive)
 	    {
 	    	//compute the algorithm
+	    	auto vel = motor[0]->measuredVel-oldPos;
+	    	auto tau = -1*motor[0]->measuredVel-20*vel;
 
+	    	if (tau<-tauMax)
+	    		tau = -tauMax;
+	    	if (tau>tauMax)
+	    		tau = tauMax;
+
+	    	oldPos = motor[0]->measuredVel;
+	    	motor[0]->desiredCurrent= tau; //1250*sinf(time);
 	    	//store data
-	   	    /* bufData_1[indexTable_1++] = mot->measuredPos;
-	   	     * bufData_2[indexTable_2++] = mot->measuredVel;
-	   	       indexTable_1 &= 1024-1;
-	   	 	   indexTable_2 &= 1024-1;*/
+	   	    bufData_1[indexTable_1++] = motor[0]->measuredPos;
+	   	    bufData_2[indexTable_2++] = motor[0]->measuredVel;
+	   	    indexTable_1 &= 8192-1;
+	   	 	indexTable_2 &= 8192-1;
 	    }
 
 	    if (motorCanSendData(motor, motorNumbers))
@@ -246,9 +260,10 @@ void GeneralHardwareInit()
 void SysTick_Handler(void)
 {
 	appClk++;
-	tick = true;
-	if (++counter1==500)
+
+	if (++counter1==5)
 	{
+		tick = true;
 		counter1 = 0;
 		Led::Yellow() ^= 1;
 	}
