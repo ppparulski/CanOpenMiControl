@@ -94,8 +94,7 @@ static void MX_GPIO_Init(void);
   * @retval int
   */
 
-//const float tauMax = 400;
-const float tauMax = 3000;
+const float tauMax = 1500;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
@@ -159,19 +158,24 @@ int main(void)
 	    if (controlActive)
 	    {
 	    	//compute the algorithm
-	    	auto vel = motor[0]->measuredVel-oldPos;
-	    	auto tau = -1*(motor[0]->measuredVel - 10000*sinf(time*2.5*2*M_PI)) -10*vel; //4 Hz
+	    	auto vel = 1000*(motor[0]->position-oldPos);
+//	    	auto tau = -1*motor[0]->measuredVel-20*vel;
+//	    	auto tau = -1*(motor[0]->position - 10000*sinf(time*2.5*2*M_PI)) -10*vel; //4 Hz
+//	    	auto tau = -30*(motor[0]->measuredVel/(2000*53) - sinf(time*2.5*2*M_PI)) -20*vel; //4 Hz
+	    	auto tau = -5000*(motor[0]->position + M_PI) -40*vel;
+
 
 	    	if (tau<-tauMax)
 	    		tau = -tauMax;
 	    	if (tau>tauMax)
 	    		tau = tauMax;
 
-	    	oldPos = motor[0]->measuredVel;
+	    	oldPos = motor[0]->position;
+//	    	oldPos = motor[0]->measuredVel/(2000*53);
 	    	motor[0]->desiredCurrent= tau; //1250*sinf(time);
 	    	//store data
 	   	    bufData_1[indexTable_1++] = motor[0]->measuredPos;
-	   	    bufData_2[indexTable_2++] = motor[0]->measuredVel;
+	   	    bufData_2[indexTable_2++] = motor[0]->position;
 	   	    indexTable_1 &= 8192-1;
 	   	 	indexTable_2 &= 8192-1;
 	    }

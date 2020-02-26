@@ -1,7 +1,7 @@
 #pragma once
 #include "mi_control.hpp"
 #include "string.h"
-
+#include "math.h"
 
 
 class MotorDrv
@@ -39,7 +39,7 @@ public:
 	int32_t measuredPos;
 	int32_t measuredCurrent;
 	int32_t actualStatus;
-
+    float position;
 
 	MotorDrv(CanDrv * canDrv, uint8_t id) : sdo(canDrv, id), pdo(canDrv, id), nmt(canDrv, id)
 	{
@@ -122,6 +122,7 @@ public:
 		auto data = (ReceiveData1 *) msg;
 		measuredPos = data->pos;
 		measuredVel = data->vel;
+		position = 2*M_PI*(float)measuredVel/(2000*53);
 	}
 
 	float ReadCurrent(volatile CanMsg * msg)

@@ -29,20 +29,20 @@ motor_drv.hpp:44:2:MotorDrv::MotorDrv(CanDrv*, uint8_t)	24	static
 motor_drv.hpp:53:7:void MotorDrv::SetPdoCmds()	16	static
 motor_drv.hpp:58:7:void MotorDrv::Configure()	64	static
 motor_drv.hpp:114:7:void MotorDrv::SetCurrent()	16	static
-motor_drv.hpp:120:8:float MotorDrv::ReadPosition(volatile CanMsg*)	24	static
-motor_drv.hpp:127:8:float MotorDrv::ReadCurrent(volatile CanMsg*)	24	static
+motor_drv.hpp:120:8:float MotorDrv::ReadPosition(volatile CanMsg*)	32	static
+motor_drv.hpp:128:8:float MotorDrv::ReadCurrent(volatile CanMsg*)	24	static
 led_interface.h:14:14:static void Led::HardwareInit()	4	static
 led_interface.h:24:14:static void Led::Init()	8	static
 led_interface.h:34:34:static volatile long unsigned int& Led::Yellow()	4	static
 canComModule.hpp:6:13:bool motorCanSendData(MotorDrv**, uint8_t)	32	static
 canComModule.hpp:45:13:void motorReadData(MotorDrv*, volatile CanMsg*, uint16_t)	24	static
-main.cpp:99:5:int main()	608	static,ignoring_inline_asm
-main.cpp:198:6:void SystemClock_Config()	88	static
-main.cpp:241:13:void MX_GPIO_Init()	16	static
-main.cpp:250:6:void GeneralHardwareInit()	4	static
-main.cpp:261:6:void SysTick_Handler()	8	static
-main.cpp:273:6:void CAN1_TX_IRQHandler()	8	static
-main.cpp:278:6:void CAN1_RX0_IRQHandler()	32	static
-main.cpp:307:6:void Error_Handler()	4	static
-main.cpp:313:1:void __static_initialization_and_destruction_0(int, int)	16	static
-main.cpp:313:1:cpp)	8	static
+main.cpp:98:5:int main()	608	static,ignoring_inline_asm
+main.cpp:202:6:void SystemClock_Config()	88	static
+main.cpp:245:13:void MX_GPIO_Init()	16	static
+main.cpp:254:6:void GeneralHardwareInit()	4	static
+main.cpp:265:6:void SysTick_Handler()	8	static
+main.cpp:277:6:void CAN1_TX_IRQHandler()	8	static
+main.cpp:282:6:void CAN1_RX0_IRQHandler()	32	static
+main.cpp:311:6:void Error_Handler()	4	static
+main.cpp:317:1:void __static_initialization_and_destruction_0(int, int)	16	static
+main.cpp:317:1:cpp)	8	static
